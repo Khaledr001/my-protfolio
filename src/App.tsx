@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-      <h1>Hello Khaled</h1>
+      <h1 className='font-poppins'>Hello Khaled</h1>
     </>
   )
 }
