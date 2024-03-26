@@ -1,5 +1,16 @@
-#root {
-  margin: 0 auto;
-  padding: 2rem;
+
+.background-container.light {
+  background-image: url('./assets/bg/page-bg-1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
+.background-container.dark {
+  background-image: url('./assets/bg/page-bg-dark-1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}

@@ -3,3 +3,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    :root {
+        --color-primary: 255 115 179;
+        --color-secondary: 111 114 185;
+        /* ... */
+    }
+
+    @media (prefers-color-scheme:dark) {
+        :root {
+            --color-primary: 255 115 100;
+            --color-secondary: 111 114 10;
+                /* ... */
+        }
+    }
+    :root[data-theme="dark"] {
+        --color-primary: 45 212 191;
+        --color-secondary: 70 74 118;
+    }
+}
