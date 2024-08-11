@@ -15,7 +15,7 @@
         :root {
             --color-primary: 255 115 100;
             --color-secondary: 111 114 10;
-                /* ... */
+            /* ... */
         }
     }
     :root[data-theme="dark"] {
