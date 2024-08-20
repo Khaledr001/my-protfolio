@@ -1,5 +1,5 @@
 
-.background-container.light {
+/* .background-container.light {
   background-image: url('./assets/bg/page-bg-1.jpg');
   background-size: cover;
   background-position: center;
@@ -13,4 +13,8 @@
   background-position: center;
   background-repeat: no-repeat;
   min-height: 100vh;
+} */
+
+#wrapper-canvas canvas {
+  max-width: 100%;
 }
