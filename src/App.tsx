@@ -3,9 +3,14 @@ import "./App.css";
 // import Home from "./pages/home";
 import Design from "./components/particle";
 import Home from "./pages/home";
-import Modal from "./components/Modal";
+import Projects from "./components/projects";
+import Carosole from "./components/carosole";
+import Contact from "./components/contact";
+import Footer from "./components/footer";
+
 
 function App() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [theme, setTheme] = useState<string>(
     localStorage.getItem("theme") ? localStorage.getItem("theme")! : "light"
   );
@@ -23,7 +28,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className="bg-gray-800">
         <div
           className={`background-container ${theme} w-full h-full bg-banner-bg bg-no-repeat bg-center bg-cover overflow-hidden`}>
           {/* <Navbar />
@@ -43,7 +48,16 @@ function App() {
         {/* </div> */}
         {/* </canvas> */}
         <div id="hello">
-          <Modal />
+          <Projects />
+        </div>
+        {/* <div>
+          <Carosole />
+        </div> */}
+        <div>
+          <Contact />
+        </div>
+        <div>
+          <Footer />
         </div>
       </div>
     </>
