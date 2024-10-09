@@ -142,7 +142,7 @@ const Home = () => {
           id="wrapper-canvas"></div> */}
         <div className="flex -mt-10 relative">
           <div className="w-full px-4 max-w-screen-xl mx-auto pointer-events-auto cursor-pointer">
-            <svg
+            {/* <svg
               width={900}
               height={500}
               viewBox="0 0 903 588"
@@ -205,7 +205,7 @@ const Home = () => {
                   />
                 </filter>
               </defs>
-            </svg>
+            </svg> */}
 
             <div className="relative ml-4 md:ml-12">
               <h1 className="pointer-events-auto text-4xl md:text-[64px] font-['Spartan'] mr-12">
@@ -263,7 +263,7 @@ const Home = () => {
 
           <ul className="ml-auto space-y-6 text-[#b0b2c3] absolute right-8">
             <li>
-              <a href="https://github.com/Khaledr001">
+              <a target="blank" href="https://github.com/Khaledr001">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 496 512"
@@ -276,7 +276,7 @@ const Home = () => {
               </a>
             </li>
             <li>
-              <a href="mailto:syedkhaled.h01@gmail.com" target="_blank">
+              <a href="mailto:syedkhaled.h01@gmail.com" target="blank">
                 <svg
                   className="w-7 hover:text-white"
                   xmlns="http://www.w3.org/2000/svg"
@@ -289,7 +289,7 @@ const Home = () => {
               </a>
             </li>
             <li>
-              <a href="https://www.linkedin.com/in/khaled01/" target="_blank">
+              <a href="https://www.linkedin.com/in/khaled01/" target="blank">
                 <svg
                   className="w-7 hover:text-white"
                   xmlns="http://www.w3.org/2000/svg"
@@ -302,7 +302,7 @@ const Home = () => {
               </a>
             </li>
             <li>
-              <a href="https://x.com/Khaled01534838" target="_blank">
+              <a href="https://x.com/Khaled01534838" target="blank">
                 <svg
                   className="w-7 hover:text-white"
                   xmlns="http://www.w3.org/2000/svg"
@@ -315,7 +315,7 @@ const Home = () => {
               </a>
             </li>
             <li>
-              <a href="https://www.instagram.com/khaledhossenrazu/">
+              <a target="blank" href="https://www.instagram.com/khaledhossenrazu/">
                 <svg
                   className="w-7 hover:text-white"
                   xmlns="http://www.w3.org/2000/svg"

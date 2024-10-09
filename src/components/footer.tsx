@@ -3,7 +3,7 @@ import React from 'react'
 const Footer = () => {
   return (
     <footer className="flex flex-col items-center pb-10">
-      <p className="text-xs text-gray-300">Anurag Singh © 2024</p>
+      <p className="text-xs text-gray-300">Syed Khaled © 2024</p>
       <div className="black-logo my-4">
         <svg
           width="50"

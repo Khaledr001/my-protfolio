@@ -30,7 +30,7 @@ function App() {
     <>
       <div className="bg-gray-800">
         <div
-          className={`background-container ${theme} w-full h-full bg-banner-bg bg-no-repeat bg-center bg-cover overflow-hidden`}>
+          className={`background-container ${theme} w-full h-full bg-no-repeat bg-center bg-cover overflow-hidden`}>
           {/* <Navbar />
         <Projects /> */}
           {/* <canvas className="  h-full w-full z-[-1]"> */}
