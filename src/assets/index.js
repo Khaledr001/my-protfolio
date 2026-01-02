@@ -40,6 +40,8 @@ import bustrack from "./bustrack.jpg";
 import isp3 from "./projects/isp3.png";
 import eWallet from "./projects/eWallet.jpg";
 import eCommerce from "./projects/eCommerce.png";
+import bizReflex from "./company/bizreflex.png";
+import chat_app from "./projects/chat_app.png";
 
 export {
   logo,
@@ -81,4 +83,6 @@ export {
   bdFlag,
   eWallet,
   eCommerce,
+  bizReflex,
+  chat_app,
 };

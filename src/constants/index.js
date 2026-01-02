@@ -28,6 +28,8 @@ import {
   bdFlag,
   eCommerce,
   eWallet,
+  bizReflex,
+  chat_app,
 } from "../assets";
 
 export const navLinks = [
@@ -52,6 +54,10 @@ export const navLinks = [
 const services = [
   {
     title: "Backend Developer",
+    icon: backend,
+  },
+  {
+    title: "Nest Developer",
     icon: backend,
   },
   {
@@ -108,6 +114,17 @@ const technologies = [
 ];
 
 const experiences = [
+  {
+    title: "Junior Software Engineer",
+    company_name: "BizReflex",
+    project: "Customer Order Management System",
+    icon: bizReflex,
+    iconBg: "#071731",
+    date: "October 2025 - Present",
+    points: [
+      
+    ],
+  },
   {
     title: "Junior Software Engineer (Backend)",
     company_name: "Bright Technologies Limited",
@@ -181,6 +198,35 @@ const testimonials = [
 ];
 
 const projects = [
+  {
+    name: "Chat Application",
+    description:
+      "Chat application with real-time messaging capabilities using Socket.IO for seamless communication. Built with a robust backend using NestJS and MongoDB for efficient data management and scalability.",
+    tags: [
+      {
+        name: "Nest Js",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Socket IO",
+        color: "orange-text-gradient",
+      },
+      {
+        name: "MongoDB",
+        color: "green-text-gradient",
+      },
+      {
+        name: "React Js",
+        color: "white-text-gradient",
+      },
+      {
+        name: "Typescript",
+        color: "blue-text-gradient",
+      },
+    ],
+    image: chat_app,
+    source_code_link: "https://github.com/Khaledr001/chat-app.git",
+  },
   {
     name: "ISP Solution Backend",
     description:
