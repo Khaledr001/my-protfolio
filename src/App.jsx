@@ -1,27 +1,19 @@
-import { BrowserRouter } from "react-router-dom";
-import { About, Contact, Experience, Hero, Navbar, Tech, Works, StarsCanvas, Feedbacks } from "./components";
+import HeroSection from "./sections/HeroSection";
+import MarqueeSection from "./sections/MarqueeSection";
+import AboutSection from "./sections/AboutSection";
+import ServicesSection from "./sections/ServicesSection";
+import ProjectsSection from "./sections/ProjectsSection";
 
-
-const App = () => {
+function App() {
   return (
-    <BrowserRouter>
-      <div className="relative z-0 bg-primary">
-        <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
-          <Navbar />
-          <Hero />
-        </div>
-        <About />
-        <Experience />
-        <Tech />
-        <Works />
-        {/* <Feedbacks /> */}
-        <div className="relative z-0">
-          <Contact />
-          <StarsCanvas />
-        </div>
-      </div>
-    </BrowserRouter>
-  )
+    <main style={{ overflowX: "clip", backgroundColor: "#0c0c0c" }}>
+      <HeroSection />
+      <MarqueeSection />
+      <AboutSection />
+      <ServicesSection />
+      <ProjectsSection />
+    </main>
+  );
 }
 
 export default App;
