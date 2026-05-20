@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm install *)",
+      "Bash(npx pnpm *)",
+      "Read(//media/khaled/Education/.pnpm-store/v11/links/@pnpm/exe/11.1.3/**)",
+      "Bash(/media/khaled/Education/.pnpm-store/v11/links/@pnpm/exe/11.1.3/9ac8817aea694227b68a61be4f6282231abeba7d3640a4be5ca508252cfb0f60/node_modules/@pnpm/exe/pnpm install *)",
+      "Read(//usr/**)",
+      "Read(//home/khaled/.local/share/**)"
+    ]
+  },
+  "mcp": {
+    "servers": {
+      "stitch": {
+        "transport": "http",
+        "url": "https://stitch.googleapis.com/mcp",
+        "headers": {
+          "X-Goog-Api-Key": "AQ.Ab8RN6ImZSIvQBE-tmvGHxlO5yVAAZGbGRe4SZnNWDrUjtsY4g"
+        }
+      }
+    }
+  }
+}
