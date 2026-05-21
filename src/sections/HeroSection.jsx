@@ -16,7 +16,13 @@ const HeroSection = () => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section
+      className="relative h-screen overflow-hidden"
+      style={{
+        background:
+          "radial-gradient(ellipse 80% 80% at 70% 50%, #0d0630 0%, #05091e 45%, #020410 100%)",
+      }}
+    >
       {/* ── 3D canvas: full bleed background ── */}
       <div className="absolute inset-0" style={{ pointerEvents: "none" }}>
         <Suspense fallback={null}>
@@ -29,7 +35,7 @@ const HeroSection = () => {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(to right, #0c0c0c 30%, rgba(12,12,12,0.7) 60%, transparent 100%)",
+            "linear-gradient(to right, #020410 25%, rgba(2,4,16,0.65) 55%, transparent 100%)",
         }}
       />
 
@@ -37,12 +43,12 @@ const HeroSection = () => {
       <div
         className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none"
         style={{
-          background: "linear-gradient(to bottom, transparent, #0c0c0c)",
+          background: "linear-gradient(to bottom, transparent, #020410)",
         }}
       />
 
       {/* ── Text content ── */}
-      <div className="relative z-10 flex flex-col justify-center min-h-screen px-8 md:px-16 lg:px-24 py-24 max-w-3xl">
+      <div className="relative z-10 flex flex-col justify-center h-full px-8 md:px-16 lg:px-24 py-16 max-w-3xl">
         {/* Available badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-black/30 backdrop-blur-sm mb-10 w-fit">
           <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
