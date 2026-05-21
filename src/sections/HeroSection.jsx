@@ -16,11 +16,35 @@ const HeroSection = () => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section className="relative min-h-screen flex items-center px-8 md:px-16 lg:px-24 py-24 overflow-hidden">
-      {/* Left content */}
-      <div className="flex-1 z-10 max-w-2xl">
+    <section className="relative min-h-screen overflow-hidden">
+      {/* ── 3D canvas: full bleed background ── */}
+      <div className="absolute inset-0" style={{ pointerEvents: "none" }}>
+        <Suspense fallback={null}>
+          <Avatar3D />
+        </Suspense>
+      </div>
+
+      {/* ── Left gradient: keeps text readable ── */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to right, #0c0c0c 30%, rgba(12,12,12,0.7) 60%, transparent 100%)",
+        }}
+      />
+
+      {/* ── Bottom gradient: bleeds into next section ── */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none"
+        style={{
+          background: "linear-gradient(to bottom, transparent, #0c0c0c)",
+        }}
+      />
+
+      {/* ── Text content ── */}
+      <div className="relative z-10 flex flex-col justify-center min-h-screen px-8 md:px-16 lg:px-24 py-24 max-w-3xl">
         {/* Available badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 mb-10">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-black/30 backdrop-blur-sm mb-10 w-fit">
           <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
           <span className="text-[13px] text-white/60 font-light tracking-wide">
             Available for work
@@ -60,16 +84,6 @@ const HeroSection = () => {
             </div>
           ))}
         </div>
-      </div>
-
-      {/* 3D Avatar — right side */}
-      <div
-        className="hidden lg:block absolute right-0 top-0 h-full"
-        style={{ width: "50%", pointerEvents: "none" }}
-      >
-        <Suspense fallback={null}>
-          <Avatar3D />
-        </Suspense>
       </div>
     </section>
   );
