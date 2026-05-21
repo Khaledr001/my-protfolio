@@ -1,9 +1,9 @@
+import { lazy, Suspense } from "react";
 import ContactButton from "../components/ui/ContactButton";
 import LiveProjectButton from "../components/ui/LiveProjectButton";
 import Magnet from "../components/ui/Magnet";
 
-const PORTRAIT =
-  "https://shrug-person-78902957.figma.site/_components/v2/d24c01ad3a56fc65e942a1f501eb73db42d7cf9a/Rectangle_40443.81459862.png";
+const Avatar3D = lazy(() => import("../components/ui/Avatar3D"));
 
 const STATS = [
   { value: "5+", label: "Years Experience" },
@@ -62,22 +62,14 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Portrait — right side, fades to left */}
+      {/* 3D Avatar — right side */}
       <div
-        className="hidden lg:block absolute right-0 top-0 h-full pointer-events-none"
-        style={{ width: "44%" }}
+        className="hidden lg:block absolute right-0 top-0 h-full"
+        style={{ width: "50%", pointerEvents: "none" }}
       >
-        <img
-          src={PORTRAIT}
-          alt="Khaled"
-          className="w-full h-full object-cover object-top"
-          style={{
-            maskImage:
-              "linear-gradient(to left, rgba(0,0,0,0.85) 50%, transparent 100%)",
-            WebkitMaskImage:
-              "linear-gradient(to left, rgba(0,0,0,0.85) 50%, transparent 100%)",
-          }}
-        />
+        <Suspense fallback={null}>
+          <Avatar3D />
+        </Suspense>
       </div>
     </section>
   );
