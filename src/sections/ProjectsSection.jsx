@@ -135,15 +135,19 @@ const ProjectsSection = () => {
       id="project"
     >
       <FadeIn>
-        <p className="text-white/25 text-[12px] uppercase tracking-[5px] font-light mb-5">
-          My work
+        <p className="text-white/20 text-[11px] uppercase tracking-[6px] font-light mb-5">
+          04 — Projects
         </p>
         <h2
-          className="font-black leading-none text-white mb-16"
-          style={{ fontSize: "clamp(48px, 7vw, 96px)" }}
+          className="font-black leading-none text-white mb-5"
+          style={{ fontSize: "clamp(48px, 7vw, 90px)" }}
         >
-          Projects.
+          Work I&apos;m
+          <br />proud of.
         </h2>
+        <p className="text-white/30 text-[15px] max-w-xl leading-relaxed font-light mb-16">
+          A selection of things I&apos;ve shipped — from real-time chat to multi-tenant SaaS platforms.
+        </p>
       </FadeIn>
 
       <div ref={ref}>
