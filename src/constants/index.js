@@ -1,228 +1,140 @@
-import { title } from "framer-motion/client";
+// ─────────────────────────────────────────────────────────────────────────────
+// STRUCTURED DATA — shapes, categories, and lists.
+// For plain text (bio, hero subtitle) edit src/content.js instead.
+// ─────────────────────────────────────────────────────────────────────────────
+
 import {
   backend,
-  carrent,
   creator,
-  css,
-  enosis,
-  git,
-  html,
-  javascript,
-  jobit,
   mobile,
-  mongodb,
+  web,
+  javascript,
+  typescript,
   nodejs,
   reactjs,
-  rebel_force,
+  mongodb,
+  docker,
+  git,
   tailwind,
-  threejs,
-  tripguide,
-  typescript,
-  vivasoft,
-  web,
-  wowgpt,
-  employees,
-  isp3,
-  bustrack,
-  devsfleet,
-  bdFlag,
-  eCommerce,
-  eWallet,
   bizReflex,
   chat_app,
+  isp3,
+  eCommerce,
+  employees,
 } from "../assets";
 
+// ── Navigation ───────────────────────────────────────────────────────────────
 export const navLinks = [
-  {
-    id: "about",
-    title: "About",
-  },
-  {
-    id: "work",
-    title: "Work",
-  },
-  {
-    id: "project",
-    title: "Project",
-  },
-  {
-    id: "contact",
-    title: "Contact",
-  },
+  { id: "about",   title: "About"    },
+  { id: "work",    title: "Work"     },
+  { id: "project", title: "Projects" },
+  { id: "contact", title: "Contact"  },
 ];
 
-const services = [
-  {
-    title: "Backend Developer",
-    icon: backend,
-  },
-  {
-    title: "Nest Developer",
-    icon: backend,
-  },
-  {
-    title: "NodeJs Developer",
-    icon: web,
-  },
-  {
-    title: "React Developer",
-    icon: mobile,
-  },
+// ── Services (About section cards) ───────────────────────────────────────────
+// Replace icon with any image from src/assets if you have a better one.
+export const services = [
+  { title: "Backend Engineering",    icon: backend },
+  { title: "Full-Stack Development", icon: web     },
+  { title: "API & System Design",    icon: mobile  },
+  { title: "Cloud & DevOps",         icon: creator },
 ];
 
-const technologies = [
-  {
-    name: "HTML 5",
-    icon: html,
-  },
-  {
-    name: "CSS 3",
-    icon: css,
-  },
-  {
-    name: "JavaScript",
-    icon: javascript,
-  },
-  {
-    name: "TypeScript",
-    icon: typescript,
-  },
-  {
-    name: "React JS",
-    icon: reactjs,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: tailwind,
-  },
-  {
-    name: "Node JS",
-    icon: nodejs,
-  },
-  {
-    name: "MongoDB",
-    icon: mongodb,
-  },
-  {
-    name: "MySQL",
-    icon: threejs,
-  },
-  {
-    name: "git",
-    icon: git,
-  },
+// ── Technologies (spinning balls) ────────────────────────────────────────────
+// Only techs relevant to the resume; icons must exist in src/assets/tech/.
+export const technologies = [
+  { name: "TypeScript",   icon: typescript },
+  { name: "JavaScript",   icon: javascript },
+  { name: "Node.js",      icon: nodejs     },
+  { name: "React",        icon: reactjs    },
+  { name: "MongoDB",      icon: mongodb    },
+  { name: "Tailwind CSS", icon: tailwind   },
+  { name: "Docker",       icon: docker     },
+  { name: "Git",          icon: git        },
 ];
 
-const experiences = [
+// ── Work Experience ───────────────────────────────────────────────────────────
+// icon    → company logo from src/assets (use web/backend/creator/mobile as
+//           placeholders; swap for a real logo once you have it)
+// iconBg  → background colour of the icon circle
+// project → shown as "Project: <value>" in the timeline card
+// points  → keep each bullet to 1–2 lines
+export const experiences = [
   {
-    title: "Junior Software Engineer",
-    company_name: "BizReflex",
-    project: "Customer Order Management System",
-    icon: bizReflex,
-    iconBg: "#071731",
-    date: "October 2025 - Present",
+    title:        "Full-Stack Developer",
+    company_name: "Sidago Inc — Chicago, USA (Remote)",
+    project:      "mazarini — Headless CMS Platform",
+    icon:         web,       // TODO: replace with Sidago logo
+    iconBg:       "#1e293b",
+    date:         "Feb 2026 – Present",
     points: [
-      
+      "Built mazarini, a full-stack headless CMS using Strapi, Next.js and TypeScript in a monorepo architecture with scalable business modules.",
+      "Engineered advanced UI components — mega menus, animated hero sections, and touch-enabled carousels — using Framer Motion and Tailwind CSS.",
+      "Containerised and deployed backend services with Docker, PostgreSQL, and Nginx.",
+      "Implemented technical SEO: metadata, sitemap.xml, and robots.txt.",
     ],
   },
   {
-    title: "Junior Software Engineer (Backend)",
-    company_name: "Bright Technologies Limited",
-    project: "ISP Insights - An ISP solution",
-    icon: rebel_force,
-    iconBg: "#ffffff",
-    date: "March 2024 - Present",
+    title:        "Junior Software Engineer",
+    company_name: "Bizreflex — Dhaka, Bangladesh",
+    project:      "TekomoPro — Technician Marketplace",
+    icon:         bizReflex,
+    iconBg:       "#ffffff",
+    date:         "Jul 2025 – Jan 2026",
     points: [
-      "Developing a web app for ISP (Internet service provider) using NodeJs and React.",
-      "I develop role based authentication with permission system using jwt. Which allows different users to access different services",
-      "Multi-Tenant architecture for handling multiple client. This system reduce the database cost significantly!",
-      "This project designed based on clean code architecture. Also integrade online transaction system (BKASH). API validation and so more.",
-      "Technologies: TypeScript, React, Tailwind, NodeJs, ExpressJs, MongoDB",
+      "Built full-stack features for TekomoPro — a work-order management marketplace — using NestJS REST APIs and Angular UI components.",
+      "Implemented event-driven communication with RabbitMQ and NATS, integrating third-party webhooks and enabling asynchronous service interactions.",
+      "Optimised Order Service APIs by ~30% through query optimisation and database schema improvements.",
+      "Implemented AWS S3 storage for scalable file uploads and asset management.",
     ],
   },
   {
-    title: "Volunteering in a project as a Backend Developer",
-    // company_name: "Bright Technologies Limited",
-    project: "Telemedicine Service system ",
-    icon: devsfleet,
-    iconBg: "#ffffff",
-    date: "June 2023 - November 2023",
+    title:        "Junior Software Engineer",
+    company_name: "Bright Technology Ltd — Dhaka, Bangladesh",
+    project:      "ISP Management SaaS",
+    icon:         backend,   // TODO: replace with Bright Technology logo
+    iconBg:       "#1e3a5f",
+    date:         "Jan 2024 – Jun 2025",
     points: [
-      "I have developed a prescription system that allows doctors to easily provide online prescriptions. Patients can view, download, and print the prescription.",
-
-      "I extensively work with regional data from Bangladesh, focusing on District, Sub-District, and Union levels. My goal is to help users quickly find the desired doctor in their preferred location. By using structured regional data, I ensure that the search and filtering processes are efficient and accurate, enabling patients to locate healthcare professionals based on their specific needs and areas.",
-
-      "Technologies - NestJs, PostgreSQL, MongoDB",
+      "Architected a RESTful API backend in Node.js, Express.js, and TypeScript with a modular controllers/routes/models structure.",
+      "Designed a multi-tenant SaaS platform with company-level data isolation and role-based access control (RBAC).",
+      "Integrated bKash payment gateway for automated billing and transaction management.",
+      "Integrated MikroTik RouterOS API for PPPoE user provisioning and network monitoring.",
+      "Built a billing and renewal system with cron jobs and multi-payment support.",
     ],
   },
   {
-    title: "Programming Trainer",
-    company_name:
-      "Khadija Memorial Girls High School, Homna, Cumilla, Bangladesh",
-    project: 'Teaching programming concepts with "C"',
-    icon: bdFlag,
-    iconBg: "#ffffff",
-    date: "February 2022 - March 2022",
+    title:        "Backend Developer",
+    company_name: "Non-Profit Organization",
+    project:      "Telemedicine Service",
+    icon:         creator,   // TODO: replace with org logo if available
+    iconBg:       "#e2e8f0",
+    date:         "Jun 2023 – Nov 2023",
     points: [
-      "The Cumilla DC office arranged a training program to educate school and college students about programming concepts.",
-      "The curriculum included C Programming, Number Theory, and Problem-Solving, providing students with valuable skills and knowledge in these areas.",
+      "Developed an online prescription system so doctors can issue prescriptions that patients can view, download, and print.",
+      "Integrated Bangladesh regional data (District, Sub-District, Union) for accurate doctor search by location.",
+      "Technologies: NestJS, PostgreSQL, MongoDB.",
     ],
   },
 ];
 
-const testimonials = [
-  {
-    testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-    name: "Sara Lee",
-    designation: "CFO",
-    company: "Acme Co",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
-  },
-  {
-    testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
-  },
-  {
-    testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
-  },
-];
+// ── Testimonials (Feedbacks component is commented out in App) ────────────────
+export const testimonials = [];
 
-const projects = [
+// ── Projects ─────────────────────────────────────────────────────────────────
+// source_code_link → GitHub repo URL or live demo URL
+// tags[].color     → CSS class from src/index.css (e.g. blue-text-gradient)
+export const projects = [
   {
     name: "Chat Application",
     description:
-      "Chat application with real-time messaging capabilities using Socket.IO for seamless communication. Built with a robust backend using NestJS and MongoDB for efficient data management and scalability.",
+      "Real-time chat platform with private messaging, group chat, and file sharing. NestJS backend, Socket.IO for live communication, React frontend, and JWT authentication.",
     tags: [
-      {
-        name: "Nest Js",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Socket IO",
-        color: "orange-text-gradient",
-      },
-      {
-        name: "MongoDB",
-        color: "green-text-gradient",
-      },
-      {
-        name: "React Js",
-        color: "white-text-gradient",
-      },
-      {
-        name: "Typescript",
-        color: "blue-text-gradient",
-      },
+      { name: "NestJS",     color: "blue-text-gradient"   },
+      { name: "Socket.IO",  color: "orange-text-gradient" },
+      { name: "MongoDB",    color: "green-text-gradient"  },
+      { name: "React",      color: "white-text-gradient"  },
+      { name: "TypeScript", color: "blue-text-gradient"   },
     ],
     image: chat_app,
     source_code_link: "https://github.com/Khaledr001/chat-app.git",
@@ -230,117 +142,40 @@ const projects = [
   {
     name: "ISP Solution Backend",
     description:
-      "Developed a web app for ISP using NodeJs and React. I develop the backend architecture. Here are some features. Role based authentication with permission system using jwt. Multi-Tenant architecture for handling multiple client. Router OS connection and mikrotik controll.",
+      "Multi-tenant SaaS for ISP management with role-based JWT authentication, company-level data isolation, MikroTik RouterOS control for PPPoE provisioning, and automated billing with cron jobs.",
     tags: [
-      {
-        name: "Node Js",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "MongoDB",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Express Js",
-        color: "white-text-gradient",
-      },
-      {
-        name: "Typescript",
-        color: "blue-text-gradient",
-      },
+      { name: "Node.js",    color: "blue-text-gradient"   },
+      { name: "MongoDB",    color: "green-text-gradient"  },
+      { name: "TypeScript", color: "blue-text-gradient"   },
+      { name: "Docker",     color: "white-text-gradient"  },
     ],
     image: isp3,
     source_code_link: "https://ispadmin.softinsightsltd.com/",
   },
   {
-    name: "E Commerce",
+    name: "E-Commerce Platform",
     description:
-      "This project is an e-commerce platform designed for a single vendor to sell products directly to customers. It offers an easy-to-use interface where customers can browse, select, and purchase products smoothly. Also include admin panel to manage the system.",
+      "Full-stack single-vendor e-commerce app with role-based JWT authentication, multi-category product listings, cart, checkout, and an admin panel for inventory and order management.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Node Js",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Express Js",
-        color: "orange-text-gradient",
-      },
-      {
-        name: "MongoDB",
-        color: "white-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "Daisy UI",
-        color: "blue-text-gradient",
-      },
+      { name: "React",    color: "blue-text-gradient"   },
+      { name: "Node.js",  color: "green-text-gradient"  },
+      { name: "MongoDB",  color: "orange-text-gradient" },
+      { name: "Tailwind", color: "pink-text-gradient"   },
     ],
     image: eCommerce,
     source_code_link: "https://github.com/Khaledr001/eCommerce",
   },
-
   {
     name: "Employee Management System",
     description:
-      "Web application that enables company admin to maintain their employee information, leave, notice, HR management.",
+      "HR platform for managing employee records, leave requests, and company notices, with role-based dashboards for admin and employee users.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Node Js",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Express Js",
-        color: "orange-text-gradient",
-      },
-      {
-        name: "MongoDB",
-        color: "white-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "pink-text-gradient",
-      },
-      {
-        name: "Daisy UI",
-        color: "blue-text-gradient",
-      },
+      { name: "React",   color: "blue-text-gradient"   },
+      { name: "Node.js", color: "green-text-gradient"  },
+      { name: "MongoDB", color: "orange-text-gradient" },
+      { name: "DaisyUI", color: "pink-text-gradient"   },
     ],
     image: employees,
-    source_code_link:
-      "https://github.com/Khaledr001/Employee-Management-System",
-  },
-  {
-    name: "E Wallet",
-    description:
-      "This project is an e-wallet application built using Flutter for the frontend and Firebase for backend services. The app provides a fast, secure, and convenient way for users to manage their funds, save cards, and make digital payments with ease.",
-    tags: [
-      {
-        name: "Flutter",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Dart",
-        color: "green-text-gradient",
-      },
-      {
-        name: "Firebase",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: eWallet,
-    source_code_link: "https://github.com/zahid-ul-islam/Vehicle-Detection",
+    source_code_link: "https://github.com/Khaledr001/Employee-Management-System",
   },
 ];
-
-export { experiences, projects, services, technologies, testimonials };
