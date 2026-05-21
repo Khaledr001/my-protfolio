@@ -9,7 +9,11 @@
       "Read(//home/khaled/.local/share/**)",
       "Bash(git checkout *)",
       "Bash(git add *)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "WebFetch(domain:x.com)",
+      "Bash(pnpm build *)",
+      "Read(//home/khaled/**)",
+      "Bash(curl -s http://localhost:5173)"
     ]
   },
   "mcp": {
