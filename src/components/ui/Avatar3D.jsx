@@ -220,15 +220,15 @@ function Scene() {
 
       {/* ── Nebula clouds (Hubble-style additive blending) ── */}
       {/* Large violet nebula, left-centre */}
-      <NebulaBlob position={[-4, 1, -10]} width={18} height={12} color="#7c3aed" opacity={160} rotation={[0, 0, 0.3]} />
+      <NebulaBlob position={[-4, 1, -10]} width={22} height={15} color="#6d28d9" opacity={210} rotation={[0, 0, 0.3]} />
       {/* Blue nebula, right side behind sphere */}
-      <NebulaBlob position={[5, -1, -12]} width={16} height={10} color="#1d4ed8" opacity={140} rotation={[0, 0, -0.2]} />
+      <NebulaBlob position={[5, -1, -12]} width={20} height={13} color="#1e40af" opacity={200} rotation={[0, 0, -0.2]} />
       {/* Teal/cyan wisp, lower centre */}
-      <NebulaBlob position={[0, -4, -8]}  width={12} height={7}  color="#0e7490" opacity={120} rotation={[0, 0, 0.5]} />
+      <NebulaBlob position={[0, -4, -8]}  width={15} height={9}  color="#0e7490" opacity={180} rotation={[0, 0, 0.5]} />
       {/* Pink/magenta streak, upper right */}
-      <NebulaBlob position={[3, 4, -9]}   width={10} height={6}  color="#be185d" opacity={110} rotation={[0, 0, -0.6]} />
-      {/* Deep purple atmospheric glow behind the sphere */}
-      <NebulaBlob position={[2.8, 0, -2]} width={10} height={10} color="#4c1d95" opacity={90}  />
+      <NebulaBlob position={[3, 4, -9]}   width={13} height={8}  color="#be185d" opacity={170} rotation={[0, 0, -0.6]} />
+      {/* Deep blue atmospheric glow behind the sphere */}
+      <NebulaBlob position={[2.8, 0, -2]} width={12} height={12} color="#1d4ed8" opacity={150} />
 
       {/* ── Avatar group ── */}
       <group ref={groupRef} position={[2.8, 0, 0]}>
@@ -285,7 +285,7 @@ const Avatar3D = () => (
     gl={{ antialias: true, alpha: true }}
     style={{ width: "100%", height: "100%" }}
   >
-    <fog attach="fog" args={["#020818", 22, 45]} />
+    <fog attach="fog" args={["#04112a", 22, 45]} />
     <ambientLight intensity={0.12} />
     {/* Blue star — main key light */}
     <pointLight position={[8, 5, 4]}   color="#93c5fd" intensity={5} />

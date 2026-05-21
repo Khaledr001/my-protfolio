@@ -20,7 +20,7 @@ const HeroSection = () => {
       className="relative h-screen overflow-hidden"
       style={{
         background:
-          "radial-gradient(ellipse 80% 80% at 70% 50%, #0d0630 0%, #05091e 45%, #020410 100%)",
+          "radial-gradient(ellipse 100% 100% at 65% 50%, #0f2060 0%, #081540 35%, #050e2e 65%, #04112a 100%)",
       }}
     >
       {/* ── 3D canvas: full bleed background ── */}
@@ -35,7 +35,7 @@ const HeroSection = () => {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(to right, #020410 25%, rgba(2,4,16,0.65) 55%, transparent 100%)",
+            "linear-gradient(to right, #04112a 22%, rgba(4,17,42,0.7) 52%, transparent 100%)",
         }}
       />
 
@@ -43,7 +43,7 @@ const HeroSection = () => {
       <div
         className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none"
         style={{
-          background: "linear-gradient(to bottom, transparent, #020410)",
+          background: "linear-gradient(to bottom, transparent, #04112a)",
         }}
       />
 

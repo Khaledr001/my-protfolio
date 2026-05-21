@@ -6,7 +6,7 @@ import ProjectsSection from "./sections/ProjectsSection";
 
 function App() {
   return (
-    <main style={{ overflowX: "clip", backgroundColor: "#020410" }}>
+    <main style={{ overflowX: "clip", backgroundColor: "#04112a" }}>
       <HeroSection />
       <MarqueeSection />
       <AboutSection />
