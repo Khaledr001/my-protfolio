@@ -3,8 +3,6 @@ import {
   About, Contact, CustomCursor, Experience, Hero,
   Navbar, Tech, Works, StarsCanvas,
 } from "./components";
-import TransitionOverlay from "./components/TransitionOverlay";
-import { PageTransitionProvider } from "./context/PageTransition";
 import ProjectPage from "./pages/ProjectPage";
 
 const colors = {
@@ -56,14 +54,11 @@ const MainPage = () => (
 
 const App = () => (
   <BrowserRouter>
-    <PageTransitionProvider>
-      <CustomCursor />
-      <TransitionOverlay />
-      <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/projects/:slug" element={<ProjectPage />} />
-      </Routes>
-    </PageTransitionProvider>
+    <CustomCursor />
+    <Routes>
+      <Route path="/" element={<MainPage />} />
+      <Route path="/projects/:slug" element={<ProjectPage />} />
+    </Routes>
   </BrowserRouter>
 );
 

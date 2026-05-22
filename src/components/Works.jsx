@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Tilt } from "react-tilt";
 
 import { github } from "../assets";
 import { projects } from "../constants";
-import { usePageTransition } from "../context/PageTransition";
 import { SectionWrapper } from "../hoc";
 import { styles } from "../style";
+import { rippleNavigate } from "../utils/ripple";
 import { fadeIn, textVariant } from "../utils/motion";
 
 const ProjectCard = ({
@@ -18,10 +18,10 @@ const ProjectCard = ({
   source_code_link,
   slug,
 }) => {
-  const { trigger } = usePageTransition();
+  const navigate = useNavigate();
 
   const handleCardClick = (e) => {
-    trigger(e.clientX, e.clientY, `/projects/${slug}`);
+    rippleNavigate(navigate, e.clientX, e.clientY, `/projects/${slug}`);
   };
 
   return (
@@ -67,7 +67,10 @@ const ProjectCard = ({
 
           <div className="mt-4 flex flex-wrap gap-2">
             {tags.map((tag) => (
-              <p key={`${name}-${tag.name}`} className={`text-[14px] ${tag.color}`}>
+              <p
+                key={`${name}-${tag.name}`}
+                className={`text-[14px] ${tag.color}`}
+              >
                 #{tag.name}
               </p>
             ))}

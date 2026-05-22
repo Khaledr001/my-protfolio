@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 
 import { experiences } from "../constants";
 import { styles } from "../style";
@@ -25,6 +25,17 @@ const Experience = () => {
   const startAngle   = -90 + 360 / count / 2;
   const arcSpan      = 180 - 360 / count;
   const anglePerStep = count > 1 ? arcSpan / (count - 1) : 0;
+
+  // Pre-compute arc positions once — avoids sin/cos on every render
+  const arcPositions = useMemo(
+    () =>
+      experiences.map((_, i) => {
+        const angle = startAngle + i * anglePerStep;
+        const rad = (angle * Math.PI) / 180;
+        return { xOff: Math.cos(rad) * 200, yOff: Math.sin(rad) * 200 };
+      }),
+    [startAngle, anglePerStep]
+  );
 
   const [activeIndex, setActiveIndex] = useState(0);
   const activeIndexRef = useRef(0);
@@ -186,10 +197,7 @@ const Experience = () => {
 
                     {/* Arc menu items */}
                     {experiences.map((exp, i) => {
-                      const angle = startAngle + i * anglePerStep;
-                      const rad   = (angle * Math.PI) / 180;
-                      const xOff  = Math.cos(rad) * 200;
-                      const yOff  = Math.sin(rad) * 200;
+                      const { xOff, yOff } = arcPositions[i];
                       return (
                         <div
                           key={exp.company_name}

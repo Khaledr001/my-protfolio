@@ -10,21 +10,29 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const [visible, setVisible] = useState(true);
   const lastScrollY = useRef(0);
+  const rafId = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentY = window.scrollY;
-      if (currentY < 50) {
-        setVisible(true);
-      } else if (currentY < lastScrollY.current) {
-        setVisible(true);
-      } else if (currentY > lastScrollY.current + 5) {
-        setVisible(false);
-      }
-      lastScrollY.current = currentY;
+      if (rafId.current) return; // already have a frame queued
+      rafId.current = requestAnimationFrame(() => {
+        rafId.current = null;
+        const currentY = window.scrollY;
+        if (currentY < 50) {
+          setVisible(true);
+        } else if (currentY < lastScrollY.current) {
+          setVisible(true);
+        } else if (currentY > lastScrollY.current + 5) {
+          setVisible(false);
+        }
+        lastScrollY.current = currentY;
+      });
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafId.current) cancelAnimationFrame(rafId.current);
+    };
   }, []);
 
   return (

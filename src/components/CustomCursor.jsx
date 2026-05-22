@@ -40,6 +40,7 @@ const CustomCursor = () => {
           translateY: "-50%",
           pointerEvents: "none",
           zIndex: 99999,
+          willChange: "transform",
         }}
       />
 
@@ -59,6 +60,7 @@ const CustomCursor = () => {
           translateY: "-50%",
           pointerEvents: "none",
           zIndex: 99999,
+          willChange: "transform",
         }}
       />
     </>
