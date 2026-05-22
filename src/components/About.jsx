@@ -12,7 +12,7 @@ import { fadeIn, textVariant } from "../utils/motion";
 function parseHighlights(text) {
   return text.split(/\*\*(.*?)\*\*/g).map((part, i) =>
     i % 2 === 1
-      ? <span key={i} className="text-[#FAB75A]">{part}</span>
+      ? <span key={i} className="text-[var(--accent)]">{part}</span>
       : part
   );
 }

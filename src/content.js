@@ -7,7 +7,7 @@ export const personalInfo = {
   // ── Hero section ────────────────────────────────────────────────────────────
   name: "Syed Khaled Hossain",
   heroSubtitle:
-    "I am a Full-Stack Software Engineer, currently building scalable CMS platforms and APIs at **Sidago Inc** (Chicago, Remote).",
+    "I am a Full-Stack Software Engineer & **AI Enthusiast**, currently building scalable CMS platforms, APIs, and **agentic AI systems**.",
 
   // ── About / Overview section ─────────────────────────────────────────────
   aboutParagraphs: [
@@ -16,6 +16,8 @@ export const personalInfo = {
     "My backend expertise centres on **Node.js**, **NestJS**, and **Express** — designing multi-tenant SaaS platforms, RESTful APIs, and event-driven systems with **RabbitMQ** and **NATS**. I have shipped payment gateways (bKash), MikroTik RouterOS integrations, and **AWS S3** storage in production.",
 
     "On the frontend I work with **React**, **Angular**, and **Next.js**. Beyond shipping products, I hold competitive programming credentials — **1100+ problems solved** across Codeforces, LeetCode, and others — which underpins how I approach system design and complex algorithmic challenges.",
+
+    "I am also actively exploring **AI and agentic systems** — building personal projects with **LLMs** and autonomous agent frameworks to deepen my understanding of how intelligent systems reason, plan, and act.",
   ],
 
   // ── Contact section ──────────────────────────────────────────────────────

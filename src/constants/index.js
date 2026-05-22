@@ -34,10 +34,10 @@ export const navLinks = [
 // ── Services (About section cards) ───────────────────────────────────────────
 // Replace icon with any image from src/assets if you have a better one.
 export const services = [
+  { title: "AI & Agentic Systems",   icon: creator },
   { title: "Backend Engineering",    icon: backend },
   { title: "Full-Stack Development", icon: web     },
   { title: "API & System Design",    icon: mobile  },
-  { title: "Cloud & DevOps",         icon: creator },
 ];
 
 // ── Technologies (spinning balls) ────────────────────────────────────────────
@@ -127,6 +127,7 @@ export const testimonials = [];
 export const projects = [
   {
     name: "Chat Application",
+    slug: "chat-application",
     description:
       "Real-time chat platform with private messaging, group chat, and file sharing. NestJS backend, Socket.IO for live communication, React frontend, and JWT authentication.",
     tags: [
@@ -141,6 +142,7 @@ export const projects = [
   },
   {
     name: "ISP Solution Backend",
+    slug: "isp-solution-backend",
     description:
       "Multi-tenant SaaS for ISP management with role-based JWT authentication, company-level data isolation, MikroTik RouterOS control for PPPoE provisioning, and automated billing with cron jobs.",
     tags: [
@@ -154,6 +156,7 @@ export const projects = [
   },
   {
     name: "E-Commerce Platform",
+    slug: "e-commerce-platform",
     description:
       "Full-stack single-vendor e-commerce app with role-based JWT authentication, multi-category product listings, cart, checkout, and an admin panel for inventory and order management.",
     tags: [
@@ -167,6 +170,7 @@ export const projects = [
   },
   {
     name: "Employee Management System",
+    slug: "employee-management-system",
     description:
       "HR platform for managing employee records, leave requests, and company notices, with role-based dashboards for admin and employee users.",
     tags: [

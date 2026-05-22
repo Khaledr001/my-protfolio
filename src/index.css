@@ -4,6 +4,35 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Accent colour as an animatable CSS variable ─────────────────────────── */
+@property --accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #FAB75A;
+}
+
+:root {
+  --accent: #FAB75A;
+  transition: --accent 0.9s ease;
+}
+
+/* Per-section themes — set via data-theme on <html> */
+[data-theme="hero"]       { --accent: #FAB75A; }
+[data-theme="about"]      { --accent: #9b7fe8; }
+[data-theme="experience"] { --accent: #a855f7; }
+[data-theme="tech"]       { --accent: #2dd4bf; }
+[data-theme="works"]      { --accent: #f59e0b; }
+[data-theme="contact"]    { --accent: #f43f5e; }
+
+html {
+  background-color: #050816;
+}
+
+body {
+  background-color: #050816;
+  transition: background-color 1.1s ease;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +41,7 @@
   scroll-behavior: smooth;
   color-scheme: dark;
 }
+
 
 .hash-span {
   margin-top: -100px;
@@ -34,13 +64,8 @@
 }
 
 .violet-gradient {
-  background: #FAB75A;
-  background: linear-gradient(-90deg, #FAB75A 0%, rgba(60, 51, 80, 0) 100%);
-  background: -webkit-linear-gradient(
-    -90deg,
-    #FAB75A 0%,
-    rgba(60, 51, 80, 0) 100%
-  );
+  background: var(--accent);
+  background: linear-gradient(-90deg, var(--accent) 0%, rgba(60, 51, 80, 0) 100%);
 }
 
 .green-pink-gradient {
