@@ -105,7 +105,7 @@ const Works = () => {
       </div>
 
       {/* 3D fanned carousel of projects */}
-      <ProjectsCarousel />
+      {/* <ProjectsCarousel /> */}
 
       <div className="mt-20 flex flex-wrap gap-7">
         {projects.map((project, index) => (

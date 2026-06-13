@@ -7,8 +7,8 @@ import { navLinks } from "../constants";
 // Nav link ids → the real section element ids rendered in App.jsx
 const sectionMap = {
   about: "s-about",
-  work: "s-experience",
   project: "s-works",
+  work: "s-experience",
   contact: "s-contact",
 };
 

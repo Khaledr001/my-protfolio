@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
+import { Download } from "lucide-react";
 
 import { personalInfo } from "../content";
+import resume from "../assets/resume/Syed_Khaled_Hossain_Resume.pdf";
 import { SplineScene } from "@/components/ui/splite";
 import { Spotlight } from "@/components/ui/spotlight";
 import { GooeyText } from "@/components/ui/gooey-text-morphing";
@@ -20,15 +22,15 @@ function parseHighlights(text) {
 
 const Hero = () => {
   return (
-    <section className="relative w-full min-h-screen overflow-hidden bg-black/10">
+    <section className="relative w-full min-h-screen overflow-hidden bg-black/10 md:h-screen">
       <Spotlight
         className="-top-40 left-0 md:left-60 md:-top-20"
         fill="white"
       />
 
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center gap-6 px-4 pb-12 pt-24 sm:px-8 md:flex-row md:gap-10 md:pb-16 md:pt-24 lg:px-12">
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center gap-6 px-4 pb-12 pt-24 sm:px-8 md:h-full md:min-h-0 md:flex-row md:items-stretch md:gap-10 md:py-0 lg:px-12">
         {/* Left content — name, role, subtitle, CTAs */}
-        <div className="flex w-full flex-1 flex-col justify-center text-center md:text-left">
+        <div className="flex w-full flex-1 flex-col justify-center text-center md:py-20 md:text-left">
           <h1 className="font-black leading-[1.1] text-white text-[clamp(2rem,4vw_+_1rem,3.75rem)]">
             Hi, I am{" "}
             <span className="text-[var(--accent)]">{personalInfo.name}</span>
@@ -72,11 +74,19 @@ const Hero = () => {
             >
               Get in Touch
             </LiquidButton>
+            <a
+              href={resume}
+              download="Syed_Khaled_Hossain_Resume.pdf"
+              className="inline-flex h-12 items-center gap-2 rounded-md border border-[var(--accent)]/50 bg-[var(--accent)]/10 px-6 text-sm font-semibold text-[var(--accent)] transition-all duration-200 hover:bg-[var(--accent)]/20 hover:shadow-[0_0_22px_-4px_var(--accent)]"
+            >
+              <Download className="h-4 w-4" />
+              Download CV
+            </a>
           </div>
         </div>
 
         {/* Right content — interactive 3D scene */}
-        <div className="relative h-[280px] w-full flex-1 self-stretch sm:h-[380px] md:h-auto md:min-h-[480px]">
+        <div className="relative h-[300px] w-full flex-1 self-stretch sm:h-[400px] md:h-full md:min-h-0">
           <SplineScene
             scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
             className="h-full w-full"

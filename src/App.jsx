@@ -33,10 +33,6 @@ const MainPage = () => (
       <About />
     </div>
 
-    <div id="s-experience" style={{ backgroundColor: colors.experience }}>
-      <Experience />
-    </div>
-
     <div id="s-tech" style={{ backgroundColor: colors.tech }}>
       <Tech />
     </div>
@@ -52,7 +48,11 @@ const MainPage = () => (
     <div id="s-works" style={{ backgroundColor: colors.works }}>
       <Works />
     </div>
-
+    
+    <div id="s-experience" style={{ backgroundColor: colors.experience }}>
+      <Experience />
+    </div>
+    
     <div
       id="s-testimonials"
       style={{ backgroundColor: colors.testimonials }}

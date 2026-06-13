@@ -2,6 +2,7 @@ import { useState, useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Preload } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.esm";
+import { useInView } from "@/utils/useInView";
 
 const Stars = (props) => {
   const ref = useRef();
@@ -28,9 +29,16 @@ const Stars = (props) => {
 };
 
 const StarsCanvas = () => {
+  // Only run the render loop while the starfield is near the viewport.
+  const [ref, inView] = useInView({ rootMargin: "300px" });
+
   return (
-    <div className='w-full h-auto absolute inset-0 z-[-1]'>
-      <Canvas camera={{ position: [0, 0, 1] }}>
+    <div ref={ref} className='w-full h-auto absolute inset-0 z-[-1]'>
+      <Canvas
+        frameloop={inView ? "always" : "never"}
+        dpr={[1, 1.5]}
+        camera={{ position: [0, 0, 1] }}
+      >
         <Suspense fallback={null}>
           <Stars />
         </Suspense>
