@@ -12,6 +12,7 @@ export default {
         "black-200": "#090325",
         "white-100": "#f3f3f3",
         // shadcn/ui tokens (dark-themed to match the portfolio)
+        foreground: "#fafafa",
         border: "#27272a",
         card: "#0a0a0a",
         "card-foreground": "#fafafa",

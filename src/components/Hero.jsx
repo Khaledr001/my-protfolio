@@ -4,6 +4,7 @@ import { styles } from "../style";
 import { personalInfo } from "../content";
 import { SplineScene } from "@/components/ui/splite";
 import { Spotlight } from "@/components/ui/spotlight";
+import { GooeyText } from "@/components/ui/gooey-text-morphing";
 
 function parseHighlights(text) {
   return text.split(/\*\*(.*?)\*\*/g).map((part, i) =>
@@ -30,6 +31,22 @@ const Hero = () => {
             Hi, I am{" "}
             <span className="text-[var(--accent)]">{personalInfo.name}</span>
           </h1>
+
+          {/* Morphing role line */}
+          <div className="mt-4 h-[60px] md:h-[80px] w-full max-w-xl">
+            <GooeyText
+              texts={[
+                "Full-Stack Engineer",
+                "AI Enthusiast",
+                "API Architect",
+                "Problem Solver",
+              ]}
+              morphTime={1}
+              cooldownTime={0.6}
+              textClassName="text-3xl md:text-5xl font-bold text-[var(--accent)] whitespace-nowrap"
+            />
+          </div>
+
           <p className={`${styles.heroSubText} mt-2 text-white-100 max-w-2xl`}>
             {parseHighlights(personalInfo.heroSubtitle)}
           </p>
