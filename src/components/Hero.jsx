@@ -5,6 +5,11 @@ import { personalInfo } from "../content";
 import { SplineScene } from "@/components/ui/splite";
 import { Spotlight } from "@/components/ui/spotlight";
 import { GooeyText } from "@/components/ui/gooey-text-morphing";
+import { LiquidButton } from "@/components/ui/liquid-glass-button";
+
+function scrollToSection(id) {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+}
 
 function parseHighlights(text) {
   return text.split(/\*\*(.*?)\*\*/g).map((part, i) =>
@@ -50,6 +55,24 @@ const Hero = () => {
           <p className={`${styles.heroSubText} mt-2 text-white-100 max-w-2xl`}>
             {parseHighlights(personalInfo.heroSubtitle)}
           </p>
+
+          {/* Call-to-action buttons */}
+          <div className="mt-8 flex flex-wrap gap-4">
+            <LiquidButton
+              size="xl"
+              onClick={() => scrollToSection("s-works")}
+              className="text-white"
+            >
+              View My Work
+            </LiquidButton>
+            <LiquidButton
+              size="xl"
+              onClick={() => scrollToSection("s-contact")}
+              className="text-white"
+            >
+              Get in Touch
+            </LiquidButton>
+          </div>
         </div>
 
         {/* Right content — interactive 3D scene */}
