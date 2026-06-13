@@ -1,115 +1,198 @@
-import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { logo, menu, close } from "../assets";
+import { logo } from "../assets";
 import { navLinks } from "../constants";
-import { styles } from "../style";
+
+// Nav link ids → the real section element ids rendered in App.jsx
+const sectionMap = {
+  about: "s-about",
+  work: "s-experience",
+  project: "s-works",
+  contact: "s-contact",
+};
+
+function scrollToId(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const y = el.getBoundingClientRect().top + window.scrollY - 70;
+  window.scrollTo({ top: y, behavior: "smooth" });
+}
 
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
-  const [visible, setVisible] = useState(true);
-  const lastScrollY = useRef(0);
-  const rafId = useRef(null);
 
+  // Scroll-spy: highlight the link whose section is in view
   useEffect(() => {
-    const handleScroll = () => {
-      if (rafId.current) return; // already have a frame queued
-      rafId.current = requestAnimationFrame(() => {
-        rafId.current = null;
-        const currentY = window.scrollY;
-        if (currentY < 50) {
-          setVisible(true);
-        } else if (currentY < lastScrollY.current) {
-          setVisible(true);
-        } else if (currentY > lastScrollY.current + 5) {
-          setVisible(false);
-        }
-        lastScrollY.current = currentY;
-      });
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (rafId.current) cancelAnimationFrame(rafId.current);
-    };
+    const observed = navLinks
+      .map((link) => ({ link, el: document.getElementById(sectionMap[link.id]) }))
+      .filter((entry) => entry.el);
+
+    if (!observed.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const match = observed.find((o) => o.el === entry.target);
+            if (match) setActive(match.link.title);
+          }
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+
+    observed.forEach(({ el }) => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
+
+  const handleNavClick = (link) => {
+    setActive(link.title);
+    setToggle(false);
+    scrollToId(sectionMap[link.id]);
+  };
 
   return (
     <>
-      {/* Invisible hover strip — reveals navbar when mouse enters top of screen */}
-      <div
-        className="fixed top-0 left-0 w-full h-3 z-30"
-        onMouseEnter={() => setVisible(true)}
-      />
-
       <motion.nav
-        initial={{ y: 0 }}
-        animate={{ y: visible ? 0 : "-100%" }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-        onMouseEnter={() => setVisible(true)}
-        className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-primary`}
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="fixed top-0 z-20 w-full bg-transparent"
       >
-        <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-8 lg:px-12">
+          {/* Logo + name */}
           <Link
             to="/"
-            className="flex items-center gap-2"
+            className="group flex items-center gap-2.5"
             onClick={() => {
               setActive("");
-              window.scrollTo(0, 0);
+              window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            <img src={logo} alt="logo" className="w-12 h-9 object-contain" />
-            <p className="text-white text-[18px] md:text-[20px] font-bold cursor-pointer">
-              SYED KHALED HOSSAIN
+            <span className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 backdrop-blur-md transition-transform duration-300 group-hover:scale-105">
+              <img src={logo} alt="logo" className="h-7 w-7 object-contain" />
+              <span className="absolute inset-0 rounded-xl opacity-0 ring-2 ring-[var(--accent)] transition-opacity duration-300 group-hover:opacity-60" />
+            </span>
+            <p className="hidden text-[15px] font-bold tracking-wide text-white xs:block">
+              Syed <span className="text-[var(--accent)]">Khaled</span>
             </p>
           </Link>
 
-          <ul className="list-none hidden sm:flex flex-row gap-10">
-            {navLinks.map((link) => (
-              <li
-                key={link.id}
-                className={`${
-                  active === link.title ? "text-white" : "text-secondary"
-                } hover:text-white text-[18px] font-medium cursor-pointer`}
-                onClick={() => setActive(link.title)}
-              >
-                <a href={`#${link.id}`}>{link.title}</a>
-              </li>
-            ))}
+          {/* Desktop links — glass pill with animated active indicator */}
+          <ul className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/5 p-1 backdrop-blur-md sm:flex">
+            {navLinks.map((link) => {
+              const isActive = active === link.title;
+              return (
+                <li key={link.id} className="relative">
+                  <a
+                    href={`#${sectionMap[link.id]}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(link);
+                    }}
+                    className={`relative block rounded-full px-4 py-1.5 text-[14px] font-medium transition-colors duration-200 ${
+                      isActive
+                        ? "text-primary"
+                        : "text-secondary hover:text-white"
+                    }`}
+                  >
+                    {isActive && (
+                      <motion.span
+                        layoutId="nav-active-pill"
+                        className="absolute inset-0 -z-10 rounded-full bg-[var(--accent)] shadow-[0_0_18px_-2px_var(--accent)]"
+                        transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                      />
+                    )}
+                    {link.title}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
 
-          <div className="sm:hidden flex flex-1 justify-end items-center">
-            <img
-              src={toggle ? close : menu}
-              alt="menu"
-              className="w-[28px] h-[28px] object-contain cursor-pointer"
-              onClick={() => setToggle(!toggle)}
-            />
-            <div
-              className={`${
-                !toggle ? "hidden" : "flex"
-              } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
+          {/* Right side — CTA (desktop) + hamburger (mobile) */}
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => scrollToId("s-contact")}
+              className="hidden items-center gap-2 rounded-full border border-[var(--accent)]/40 bg-[var(--accent)]/10 px-4 py-1.5 text-[14px] font-semibold text-[var(--accent)] transition-all duration-200 hover:bg-[var(--accent)]/20 hover:shadow-[0_0_20px_-4px_var(--accent)] sm:inline-flex"
             >
-              <ul className="list-none flex justify-end items-start flex-col gap-4">
-                {navLinks.map((link) => (
-                  <li
-                    key={link.id}
-                    className={`${
-                      active === link.title ? "text-white" : "text-secondary"
-                    } font-poppins font-medium cursor-pointer text-[16px]`}
-                    onClick={() => {
-                      setToggle(!toggle);
-                      setActive(link.title);
-                    }}
-                  >
-                    <a href={`#${link.id}`}>{link.title}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+              Let&apos;s Talk
+            </button>
+
+            {/* Mobile hamburger */}
+            <button
+              type="button"
+              aria-label="Toggle menu"
+              onClick={() => setToggle((prev) => !prev)}
+              className="relative flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-xl border border-white/10 bg-white/5 backdrop-blur-md sm:hidden"
+            >
+              <motion.span
+                animate={toggle ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+                className="block h-[2px] w-5 rounded-full bg-white"
+              />
+              <motion.span
+                animate={toggle ? { opacity: 0 } : { opacity: 1 }}
+                className="block h-[2px] w-5 rounded-full bg-white"
+              />
+              <motion.span
+                animate={toggle ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
+                className="block h-[2px] w-5 rounded-full bg-white"
+              />
+            </button>
           </div>
         </div>
+
+        {/* Mobile dropdown menu */}
+        <AnimatePresence>
+          {toggle && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.25, ease: "easeInOut" }}
+              className="overflow-hidden border-t border-white/10 bg-primary/90 backdrop-blur-xl sm:hidden"
+            >
+              <ul className="flex flex-col gap-1 px-4 py-4">
+                {navLinks.map((link) => {
+                  const isActive = active === link.title;
+                  return (
+                    <li key={link.id}>
+                      <a
+                        href={`#${sectionMap[link.id]}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleNavClick(link);
+                        }}
+                        className={`block rounded-xl px-4 py-3 text-[16px] font-medium transition-colors ${
+                          isActive
+                            ? "bg-[var(--accent)]/15 text-[var(--accent)]"
+                            : "text-secondary hover:bg-white/5 hover:text-white"
+                        }`}
+                      >
+                        {link.title}
+                      </a>
+                    </li>
+                  );
+                })}
+                <li className="mt-1">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setToggle(false);
+                      scrollToId("s-contact");
+                    }}
+                    className="w-full rounded-xl bg-[var(--accent)] px-4 py-3 text-[16px] font-semibold text-primary"
+                  >
+                    Let&apos;s Talk
+                  </button>
+                </li>
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.nav>
     </>
   );

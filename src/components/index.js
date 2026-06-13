@@ -5,6 +5,7 @@ import About from './About';
 import Tech from './Tech';
 import Experience from './Experience';
 import Works from './Works';
+import FeaturedWork from './FeaturedWork';
 import Feedbacks from './Feedbacks';
 import Contact from './Contact';
 import CustomCursor from './CustomCursor';
@@ -16,6 +17,7 @@ export {
   Tech,
   Experience,
   Works,
+  FeaturedWork,
   Feedbacks,
   Contact,
   CustomCursor,

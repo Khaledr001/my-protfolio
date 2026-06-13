@@ -1,15 +1,18 @@
+import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   About, Contact, CustomCursor, Experience, Hero,
-  Navbar, Tech, Works, StarsCanvas,
+  Navbar, Tech, Works, FeaturedWork, StarsCanvas,
 } from "./components";
 import ProjectPage from "./pages/ProjectPage";
+import { Component as AILoader } from "@/components/ui/ai-loader";
 
 const colors = {
   hero:       "#050a18",
   about:      "#060e28",
   experience: "#08102e",
   tech:       "#041a28",
+  featured:   "#03080f",
   works:      "#060e20",
   contact:    "#080a24",
 };
@@ -37,6 +40,14 @@ const MainPage = () => (
       <Tech />
     </div>
 
+    <div
+      id="s-featured"
+      style={{ backgroundColor: colors.featured }}
+      className="overflow-hidden"
+    >
+      <FeaturedWork />
+    </div>
+
     <div id="s-works" style={{ backgroundColor: colors.works }}>
       <Works />
     </div>
@@ -52,14 +63,40 @@ const MainPage = () => (
   </div>
 );
 
-const App = () => (
-  <BrowserRouter>
-    <CustomCursor />
-    <Routes>
-      <Route path="/" element={<MainPage />} />
-      <Route path="/projects/:slug" element={<ProjectPage />} />
-    </Routes>
-  </BrowserRouter>
-);
+const App = () => {
+  const [loading, setLoading] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);
+
+  useEffect(() => {
+    // Reveal the site once the window has loaded (or after a max wait),
+    // fading the splash out before unmounting it.
+    const start = () => {
+      setFadeOut(true);
+      window.setTimeout(() => setLoading(false), 700);
+    };
+
+    const minDisplay = window.setTimeout(start, 2200);
+    return () => window.clearTimeout(minDisplay);
+  }, []);
+
+  return (
+    <BrowserRouter>
+      {loading && (
+        <div
+          className={`fixed inset-0 z-[60] transition-opacity duration-700 ${
+            fadeOut ? "opacity-0 pointer-events-none" : "opacity-100"
+          }`}
+        >
+          <AILoader text="Loading" />
+        </div>
+      )}
+      <CustomCursor />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/projects/:slug" element={<ProjectPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
 export default App;
