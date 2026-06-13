@@ -4,6 +4,7 @@ import { Tilt } from "react-tilt";
 
 import { github } from "../assets";
 import { projects } from "../constants";
+import ProjectsCarousel from "./ProjectsCarousel";
 import { SectionWrapper } from "../hoc";
 import { styles } from "../style";
 import { rippleNavigate } from "../utils/ripple";
@@ -102,6 +103,9 @@ const Works = () => {
           three of them.
         </motion.p>
       </div>
+
+      {/* 3D fanned carousel of projects */}
+      <ProjectsCarousel />
 
       <div className="mt-20 flex flex-wrap gap-7">
         {projects.map((project, index) => (

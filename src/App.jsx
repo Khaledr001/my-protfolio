@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   About, Contact, CustomCursor, Experience, Hero,
-  Navbar, Tech, Works, FeaturedWork, StarsCanvas,
+  Navbar, Tech, Works, FeaturedWork, Testimonials, StarsCanvas,
 } from "./components";
 import ProjectPage from "./pages/ProjectPage";
 import { Component as AILoader } from "@/components/ui/ai-loader";
@@ -14,6 +14,7 @@ const colors = {
   tech:       "#041a28",
   featured:   "#03080f",
   works:      "#060e20",
+  testimonials: "#050a1c",
   contact:    "#080a24",
 };
 
@@ -50,6 +51,13 @@ const MainPage = () => (
 
     <div id="s-works" style={{ backgroundColor: colors.works }}>
       <Works />
+    </div>
+
+    <div
+      id="s-testimonials"
+      style={{ backgroundColor: colors.testimonials }}
+    >
+      <Testimonials />
     </div>
 
     <div
