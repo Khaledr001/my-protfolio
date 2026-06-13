@@ -13,6 +13,9 @@
     "@emailjs/browser": "^4.4.1",
     "@react-three/drei": "^9.112.0",
     "@react-three/fiber": "^8.17.7",
+    "@splinetool/react-spline": "^4.1.0",
+    "@splinetool/runtime": "^1.12.97",
+    "clsx": "^2.1.1",
     "framer-motion": "^11.5.4",
     "maath": "^0.10.8",
     "react": "^18.3.1",
@@ -20,6 +23,7 @@
     "react-router-dom": "^6.26.2",
     "react-tilt": "^1.0.2",
     "react-vertical-timeline-component": "^3.6.0",
+    "tailwind-merge": "^3.6.0",
     "three": "^0.168.0"
   },
   "devDependencies": {

@@ -11,6 +11,15 @@ export default {
         "black-100": "#100d25",
         "black-200": "#090325",
         "white-100": "#f3f3f3",
+        // shadcn/ui tokens (dark-themed to match the portfolio)
+        border: "#27272a",
+        card: "#0a0a0a",
+        "card-foreground": "#fafafa",
+        muted: "#27272a",
+        "muted-foreground": "#a1a1aa",
+      },
+      borderColor: {
+        DEFAULT: "#27272a",
       },
       boxShadow: {
         card: "0px 35px 120px -15px #211e35",
@@ -20,6 +29,21 @@ export default {
       },
       backgroundImage: {
         "hero-pattern": "url('/src/assets/herobg.jpg')",
+      },
+      keyframes: {
+        spotlight: {
+          "0%": {
+            opacity: "0",
+            transform: "translate(-72%, -62%) scale(0.5)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translate(-50%,-40%) scale(1)",
+          },
+        },
+      },
+      animation: {
+        spotlight: "spotlight 2s ease .75s 1 forwards",
       },
     },
   },

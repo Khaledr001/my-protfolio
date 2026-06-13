@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 
 import { styles } from "../style";
-import { ComputersCanvas } from "./canvas";
 import { personalInfo } from "../content";
+import { SplineScene } from "@/components/ui/splite";
+import { Spotlight } from "@/components/ui/spotlight";
 
 function parseHighlights(text) {
   return text.split(/\*\*(.*?)\*\*/g).map((part, i) =>
@@ -14,28 +15,36 @@ function parseHighlights(text) {
 
 const Hero = () => {
   return (
-    <section className="relative w-full h-screen mx-auto">
-      <div
-        className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}>
-        <div className="flex flex-col justify-center items-center mt-5">
-          <div className="w-5 h-5 rounded-full bg-[var(--accent)]" />
-          <div className="w-1 sm:h-80 h-40 violet-gradient" />
-        </div>
+    <section className="relative w-full h-screen mx-auto overflow-hidden bg-black/[0.96]">
+      <Spotlight
+        className="-top-40 left-0 md:left-60 md:-top-20"
+        fill="white"
+      />
 
-        <div>
+      <div className="absolute inset-0 flex flex-col md:flex-row">
+        {/* Left content — name + subtitle */}
+        <div
+          className={`${styles.paddingX} flex-1 z-10 flex flex-col justify-center pt-[120px] md:pt-0`}
+        >
           <h1 className={`${styles.heroHeadText} text-white`}>
             Hi, I am{" "}
             <span className="text-[var(--accent)]">{personalInfo.name}</span>
           </h1>
-          <p className={`${styles.heroSubText} mt-2 text-white-100`}>
+          <p className={`${styles.heroSubText} mt-2 text-white-100 max-w-2xl`}>
             {parseHighlights(personalInfo.heroSubtitle)}
           </p>
         </div>
+
+        {/* Right content — interactive 3D scene */}
+        <div className="flex-1 relative min-h-[40vh] md:min-h-0">
+          <SplineScene
+            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+            className="w-full h-full"
+          />
+        </div>
       </div>
 
-      <ComputersCanvas />
-
-      <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
+      <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center z-10">
         <a href="#about">
           <div className="w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
             <motion.div
