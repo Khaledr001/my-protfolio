@@ -17,6 +17,7 @@ import {
   git,
   tailwind,
   bizReflex,
+  pos,
   chat_app,
   isp3,
   eCommerce,
@@ -125,6 +126,22 @@ export const testimonials = [];
 // source_code_link → GitHub repo URL or live demo URL
 // tags[].color     → CSS class from src/index.css (e.g. blue-text-gradient)
 export const projects = [
+  {
+    name: "POS & Inventory Management System",
+    slug: "pos-inventory-management-system",
+    description: "Point-of-Sale (POS) and inventory management system with role-based authentication, product and category management, sales and purchase tracking, and real-time stock level monitoring.",
+    tags: [
+      { name: "Angular",    color: "blue-text-gradient"   },
+      { name: ".NET",  color: "green-text-gradient"  },
+      { name: "PostgreSQL",  color: "orange-text-gradient" },
+      { name: "TypeScript",color: "blue-text-gradient"   },
+    ],
+    image: pos,
+    source_code_link: "https://github.com/Khaledr001/pos.git",
+    live_demo_link: "https://pos.devsfleet.com",
+    demo_login: "demo@demo.com",
+    demo_password: "Demo123!",
+  },
   {
     name: "Chat Application",
     slug: "chat-application",
