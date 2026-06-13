@@ -22,6 +22,7 @@ import git         from "./tech/git.png";
 import bizReflex from "./company/bizreflex.png";
 
 // ── Project screenshots ───────────────────────────────────────────────────────
+import pos from "./projects/pos.png"
 import chat_app  from "./projects/chat_app.png";
 import isp3      from "./projects/isp3.png";
 import eCommerce from "./projects/eCommerce.png";
@@ -45,6 +46,7 @@ export {
   docker,
   git,
   bizReflex,
+  pos,
   chat_app,
   isp3,
   eCommerce,
