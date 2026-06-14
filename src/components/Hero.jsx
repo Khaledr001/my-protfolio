@@ -42,8 +42,8 @@ const Hero = () => {
             <GooeyText
               texts={[
                 "Full-Stack Engineer",
+                "Backend Architect",
                 "AI Enthusiast",
-                "API Architect",
                 "Problem Solver",
               ]}
               morphTime={1}

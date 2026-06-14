@@ -17,16 +17,22 @@ import mongodb     from "./tech/mongodb.png";
 import tailwind    from "./tech/tailwind.png";
 import docker      from "./tech/docker.png";
 import git         from "./tech/git.png";
+import strapi      from "./tech/strapi_icon.webp";
 
 // ── Company logos ─────────────────────────────────────────────────────────────
 import bizReflex from "./company/bizreflex.png";
 
 // ── Project screenshots ───────────────────────────────────────────────────────
-import pos from "./projects/pos.png"
+import pos from "./projects/pos.png";
+import pos_terminal from "./projects/pos_terminal.png";
 import chat_app  from "./projects/chat_app.png";
-import isp3      from "./projects/isp3.png";
+import isp      from "./projects/isp.png";
+import isp_mobile from "./projects/isp-mobile.png";
 import eCommerce from "./projects/eCommerce.png";
 import employees from "./employees.png";
+import mazarini from "./projects/mazarini.png";
+import mazarini1 from "./projects/mazarini1.png";
+import mazarini_mobile from "./projects/mazarini-mobile.png";
 
 export {
   logo,
@@ -45,10 +51,16 @@ export {
   tailwind,
   docker,
   git,
+  strapi,
   bizReflex,
   pos,
+  pos_terminal,
   chat_app,
-  isp3,
+  isp,
+  isp_mobile,
   eCommerce,
   employees,
+  mazarini,
+  mazarini1,
+  mazarini_mobile,
 };
