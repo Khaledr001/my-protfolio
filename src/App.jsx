@@ -76,15 +76,46 @@ const App = () => {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    // Reveal the site once the window has loaded (or after a max wait),
-    // fading the splash out before unmounting it.
-    const start = () => {
+    // Keep the splash up until the hero's 3D scene has finished loading, so it
+    // appears instantly when the loader fades. Bounded by a minimum (avoids a
+    // flash when the scene is cached) and a hard cap (never hangs if it fails).
+    // Non-home routes have no Spline scene, so they use a short splash.
+    const isHome = window.location.pathname === "/";
+
+    let finished = false;
+    let minPassed = false;
+    let sceneReady = !isHome || window.__splineLoaded === true;
+
+    const finish = () => {
+      if (finished) return;
+      finished = true;
       setFadeOut(true);
       window.setTimeout(() => setLoading(false), 700);
     };
+    const maybeFinish = () => {
+      if (minPassed && sceneReady) finish();
+    };
 
-    const minDisplay = window.setTimeout(start, 2200);
-    return () => window.clearTimeout(minDisplay);
+    const minTimer = window.setTimeout(
+      () => {
+        minPassed = true;
+        maybeFinish();
+      },
+      isHome ? 1200 : 500
+    );
+    const maxTimer = window.setTimeout(finish, isHome ? 7000 : 1500);
+
+    const onSceneReady = () => {
+      sceneReady = true;
+      maybeFinish();
+    };
+    window.addEventListener("spline:loaded", onSceneReady);
+
+    return () => {
+      window.clearTimeout(minTimer);
+      window.clearTimeout(maxTimer);
+      window.removeEventListener("spline:loaded", onSceneReady);
+    };
   }, []);
 
   return (

@@ -1,8 +1,103 @@
 {
-  "hash": "7133ca13",
+  "hash": "fbc7c730",
   "configHash": "e72753d6",
-  "lockfileHash": "e3b0c442",
-  "browserHash": "ae9dd9c4",
-  "optimized": {},
-  "chunks": {}
+  "lockfileHash": "457c9ea5",
+  "browserHash": "2d8b6fcb",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "8e8e4538",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "cac21d30",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/.pnpm/react-router-dom@6.30.3_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "55678da9",
+      "needsInterop": false
+    },
+    "framer-motion": {
+      "src": "../../node_modules/.pnpm/framer-motion@11.18.2_react-dom@18.3.1_react@18.3.1__react@18.3.1/node_modules/framer-motion/dist/es/index.mjs",
+      "file": "framer-motion.js",
+      "fileHash": "0babd7af",
+      "needsInterop": false
+    },
+    "react-tilt": {
+      "src": "../../node_modules/.pnpm/react-tilt@1.0.2_@types+react-dom@18.3.7_@types+react@18.3.28__@types+react@18.3.28_rea_3c5dd0aae4919d2ff777f14a9353275d/node_modules/react-tilt/dist/index.js",
+      "file": "react-tilt.js",
+      "fileHash": "ef2d1880",
+      "needsInterop": false
+    },
+    "lucide-react": {
+      "src": "../../node_modules/.pnpm/lucide-react@1.18.0_react@18.3.1/node_modules/lucide-react/dist/esm/lucide-react.mjs",
+      "file": "lucide-react.js",
+      "fileHash": "390bf620",
+      "needsInterop": false
+    },
+    "@emailjs/browser": {
+      "src": "../../node_modules/.pnpm/@emailjs+browser@4.4.1/node_modules/@emailjs/browser/es/index.js",
+      "file": "@emailjs_browser.js",
+      "fileHash": "224fd5a1",
+      "needsInterop": false
+    },
+    "@react-three/fiber": {
+      "src": "../../node_modules/.pnpm/@react-three+fiber@8.18.0_@types+react@18.3.28_react-dom@18.3.1_react@18.3.1__react@18.3.1_three@0.168.0/node_modules/@react-three/fiber/dist/react-three-fiber.esm.js",
+      "file": "@react-three_fiber.js",
+      "fileHash": "519e6cab",
+      "needsInterop": false
+    },
+    "@react-three/drei": {
+      "src": "../../node_modules/.pnpm/@react-three+drei@9.122.0_@react-three+fiber@8.18.0_@types+react@18.3.28_react-dom@18.3_130e87b76e3e17d769e5c46da3b4315e/node_modules/@react-three/drei/index.js",
+      "file": "@react-three_drei.js",
+      "fileHash": "c81830e6",
+      "needsInterop": false
+    },
+    "maath/random/dist/maath-random.esm": {
+      "src": "../../node_modules/.pnpm/maath@0.10.8_@types+three@0.184.1_three@0.168.0/node_modules/maath/random/dist/maath-random.esm.js",
+      "file": "maath_random_dist_maath-random__esm.js",
+      "fileHash": "039d8019",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-GTJLKEZ7": {
+      "file": "chunk-GTJLKEZ7.js"
+    },
+    "hls-QTJLQYR6": {
+      "file": "hls-QTJLQYR6.js"
+    },
+    "chunk-I4XFUZPN": {
+      "file": "chunk-I4XFUZPN.js"
+    },
+    "vision_bundle-WCORLZA5": {
+      "file": "vision_bundle-WCORLZA5.js"
+    },
+    "chunk-4NJUMXT2": {
+      "file": "chunk-4NJUMXT2.js"
+    },
+    "chunk-IM3RSAW5": {
+      "file": "chunk-IM3RSAW5.js"
+    },
+    "chunk-U3NLJ3TN": {
+      "file": "chunk-U3NLJ3TN.js"
+    },
+    "chunk-BVTZPH44": {
+      "file": "chunk-BVTZPH44.js"
+    },
+    "chunk-VIVGG7IY": {
+      "file": "chunk-VIVGG7IY.js"
+    },
+    "chunk-YF6YTEQP": {
+      "file": "chunk-YF6YTEQP.js"
+    },
+    "chunk-DC5AMYBS": {
+      "file": "chunk-DC5AMYBS.js"
+    }
+  }
 }
