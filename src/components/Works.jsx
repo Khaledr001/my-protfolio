@@ -5,6 +5,7 @@ import { Tilt } from "react-tilt";
 import { github } from "../assets";
 import { projects } from "../constants";
 import ProjectsCarousel from "./ProjectsCarousel";
+import { LiquidButton } from "@/components/ui/liquid-glass-button";
 import { SectionWrapper } from "../hoc";
 import { styles } from "../style";
 import { rippleNavigate } from "../utils/ripple";
@@ -42,19 +43,22 @@ const ProjectCard = ({
             className="w-full h-full object-cover rounded-2xl"
           />
           <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
-            <div
+            <LiquidButton
+              type="button"
+              aria-label="View source code"
               onClick={(e) => {
                 e.stopPropagation();
                 window.open(source_code_link, "_blank");
               }}
-              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+              size="icon"
+              className="h-10 w-10 rounded-full"
             >
               <img
                 src={github}
                 alt="source code"
                 className="w-1/2 h-1/2 object-contain"
               />
-            </div>
+            </LiquidButton>
           </div>
         </div>
 

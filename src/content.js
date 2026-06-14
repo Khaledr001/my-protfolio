@@ -24,3 +24,15 @@ export const personalInfo = {
   contactName: "Syed Khaled Hossain",
   email: "syedkhaled.h01@gmail.com",
 };
+
+// ── Social / profile links ────────────────────────────────────────────────
+// `icon` maps to an icon in Contact.jsx. Fill in the real URLs (the ones marked
+// TODO are placeholders).
+export const socials = [
+  { name: "GitHub",     icon: "github",     url: "https://github.com/Khaledr001" },
+  { name: "LinkedIn",   icon: "linkedin",   url: "https://www.linkedin.com/in/" /* TODO */ },
+  { name: "X",          icon: "x",          url: "https://x.com/" /* TODO */ },
+  { name: "Facebook",   icon: "facebook",   url: "https://www.facebook.com/" /* TODO */ },
+  { name: "LeetCode",   icon: "leetcode",   url: "https://leetcode.com/u/" /* TODO */ },
+  { name: "Codeforces", icon: "codeforces", url: "https://codeforces.com/profile/" /* TODO */ },
+];

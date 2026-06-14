@@ -69,6 +69,7 @@ const liquidbuttonVariants = cva(
         lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
         xl: "h-12 rounded-md px-8 has-[>svg]:px-6",
         xxl: "h-14 rounded-md px-10 has-[>svg]:px-8",
+        xxxl: "h-12 rounded-md px-8 has-[>svg]:px-8",
         icon: "size-9",
       },
     },
@@ -84,15 +85,17 @@ function LiquidButton({
   variant,
   size,
   asChild = false,
+  href,
   children,
   ...props
 }) {
-  const Comp = asChild ? Slot : "button";
+  const Comp = href ? "a" : asChild ? Slot : "button";
 
   return (
     <>
       <Comp
         data-slot="button"
+        href={href}
         className={cn(
           "relative",
           liquidbuttonVariants({ variant, size, className })
@@ -108,7 +111,7 @@ function LiquidButton({
           style={{ backdropFilter: 'url("#container-glass")' }}
         />
 
-        <div className="pointer-events-none z-10 ">
+        <div className="pointer-events-none z-10 inline-flex items-center justify-center gap-2 whitespace-nowrap">
           {children}
         </div>
         <GlassFilter />

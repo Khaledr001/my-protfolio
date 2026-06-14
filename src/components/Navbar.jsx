@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { logo } from "../assets";
 import { navLinks } from "../constants";
+import { LiquidButton } from "@/components/ui/liquid-glass-button";
 
 // Nav link ids → the real section element ids rendered in App.jsx
 const sectionMap = {
@@ -114,13 +115,14 @@ const Navbar = () => {
 
           {/* Right side — CTA (desktop) + hamburger (mobile) */}
           <div className="flex items-center gap-3">
-            <button
+            <LiquidButton
               type="button"
               onClick={() => scrollToId("s-contact")}
-              className="hidden items-center gap-2 rounded-full border border-[var(--accent)]/40 bg-[var(--accent)]/10 px-4 py-1.5 text-[14px] font-semibold text-[var(--accent)] transition-all duration-200 hover:bg-[var(--accent)]/20 hover:shadow-[0_0_20px_-4px_var(--accent)] sm:inline-flex"
+              size="sm"
+              className="hidden text-white sm:inline-flex"
             >
               Let&apos;s Talk
-            </button>
+            </LiquidButton>
 
             {/* Mobile hamburger */}
             <button
@@ -178,16 +180,17 @@ const Navbar = () => {
                   );
                 })}
                 <li className="mt-1">
-                  <button
+                  <LiquidButton
                     type="button"
                     onClick={() => {
                       setToggle(false);
                       scrollToId("s-contact");
                     }}
-                    className="w-full rounded-xl bg-[var(--accent)] px-4 py-3 text-[16px] font-semibold text-primary"
+                    size="lg"
+                    className="w-full text-white"
                   >
                     Let&apos;s Talk
-                  </button>
+                  </LiquidButton>
                 </li>
               </ul>
             </motion.div>

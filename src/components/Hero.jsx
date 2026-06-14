@@ -7,6 +7,7 @@ import { SplineScene } from "@/components/ui/splite";
 import { Spotlight } from "@/components/ui/spotlight";
 import { GooeyText } from "@/components/ui/gooey-text-morphing";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
+import SocialLinks from "./SocialLinks";
 
 function scrollToSection(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -74,15 +75,25 @@ const Hero = () => {
             >
               Get in Touch
             </LiquidButton>
-            <a
+            <LiquidButton
               href={resume}
               download="Syed_Khaled_Hossain_Resume.pdf"
-              className="inline-flex h-12 items-center gap-2 rounded-md border border-[var(--accent)]/50 bg-[var(--accent)]/10 px-6 text-sm font-semibold text-[var(--accent)] transition-all duration-200 hover:bg-[var(--accent)]/20 hover:shadow-[0_0_22px_-4px_var(--accent)]"
+              size="xl"
+              variant="outline"
+              className="gap-2 text-white"
             >
               <Download className="h-4 w-4" />
               Download CV
-            </a>
+            </LiquidButton>
           </div>
+
+          {/* Social links */}
+          <SocialLinks
+            className="mt-6 justify-center md:justify-start"
+            itemClassName="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white/70 transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:text-[var(--accent)]"
+            iconClassName="h-[18px] w-[18px]"
+            includeEmail={false}
+          />
         </div>
 
         {/* Right content — interactive 3D scene */}
