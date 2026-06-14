@@ -81,7 +81,7 @@ export function MarketingBadges({ badges = defaultBadges, className }) {
   return (
     <div
       className={cn(
-        "relative flex h-[400px] w-full items-center justify-center",
+        "flex flex-wrap items-center justify-center gap-3 sm:gap-4",
         className
       )}
     >
@@ -94,7 +94,7 @@ export function MarketingBadges({ badges = defaultBadges, className }) {
           <div
             key={badge.id}
             className={cn(
-              "absolute cursor-pointer select-none rounded-full font-semibold transition-all duration-500 ease-out",
+              "relative cursor-pointer select-none rounded-full font-semibold transition-all duration-500 ease-out",
               "bg-gradient-to-b shadow-lg",
               badge.color,
               sizeClasses[badge.size],
@@ -102,12 +102,11 @@ export function MarketingBadges({ badges = defaultBadges, className }) {
             )}
             style={{
               transform: `
-                translate(${badge.offsetX}px, ${badge.offsetY}px)
                 rotate(${isHovered ? 0 : badge.rotation}deg)
                 scale(${isClicked ? 1.15 : isHovered ? 1.08 : isOtherHovered ? 0.95 : 1})
                 translateY(${isHovered ? -8 : 0}px)
               `,
-              zIndex: isHovered || isClicked ? 100 : badge.zIndex,
+              zIndex: isHovered || isClicked ? 100 : 1,
               boxShadow: isHovered
                 ? "0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 12px 24px -8px rgba(0, 0, 0, 0.15), inset 0 2px 4px rgba(255, 255, 255, 0.3)"
                 : isClicked

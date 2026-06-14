@@ -33,10 +33,8 @@ const Tech = () => {
         <h2 className={styles.sectionHeadText}>Skills &amp; Tech.</h2>
       </div>
 
-      <div className="mt-6 flex w-full justify-center overflow-hidden">
-        <div className="origin-center scale-[0.7] sm:scale-90 md:scale-100">
-          <MarketingBadges badges={skillBadges} className="w-[420px]" />
-        </div>
+      <div className="mt-10 flex justify-center">
+        <MarketingBadges badges={skillBadges} className="max-w-3xl" />
       </div>
     </>
   );

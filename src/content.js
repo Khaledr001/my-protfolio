@@ -33,8 +33,8 @@ export const personalInfo = {
 export const socials = [
   { name: "GitHub",     icon: "github",     url: "https://github.com/Khaledr001" },
   { name: "LinkedIn",   icon: "linkedin",   url: "https://www.linkedin.com/in/khaled01" },
-  { name: "X",          icon: "x",          url: "https://x.com/" /* TODO */ },
-  { name: "Facebook",   icon: "facebook",   url: "https://www.facebook.com/" /* TODO */ },
-  { name: "LeetCode",   icon: "leetcode",   url: "https://leetcode.com/u/" /* TODO */ },
-  { name: "Codeforces", icon: "codeforces", url: "https://codeforces.com/profile/" /* TODO */ },
+  { name: "X",          icon: "x",          url: "https://x.com/Khaled01534838" },
+  { name: "Facebook",   icon: "facebook",   url: "https://www.facebook.com/khaledhossain.razu" },
+  // { name: "LeetCode",   icon: "leetcode",   url: "https://leetcode.com/u/khaled001/" },
+  // { name: "Codeforces", icon: "codeforces", url: "https://codeforces.com/profile/" /* TODO */ },
 ];

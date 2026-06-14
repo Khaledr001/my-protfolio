@@ -74,6 +74,7 @@ export default function SocialLinks({
           aria-label="Email"
           title="Email"
           className={itemClassName}
+          target="_blank"
         >
           <Mail className={iconClassName} />
         </a>
