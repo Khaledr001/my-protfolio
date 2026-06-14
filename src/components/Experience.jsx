@@ -90,7 +90,7 @@ const Experience = () => {
           top: 0,
           height: "100vh",
           overflow: "hidden",
-          background: "linear-gradient(135deg, #0d0520 0%, #060a1c 55%, #050816 100%)",
+          background: "#0f1a33",
         }}
       >
         {/* Honeycomb pattern */}

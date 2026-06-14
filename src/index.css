@@ -25,14 +25,14 @@
 [data-theme="contact"]    { --accent: #f43f5e; }
 
 html {
-  background-color: #050816;
+  background-color: #0f1a33;
   /* clip (not hidden) prevents horizontal scroll without breaking the
      sticky-scroll Experience section */
   overflow-x: clip;
 }
 
 body {
-  background-color: #050816;
+  background-color: #0f1a33;
   transition: background-color 1.1s ease;
   overflow-x: clip;
 }

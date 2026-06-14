@@ -7,62 +7,55 @@ import {
 import ProjectPage from "./pages/ProjectPage";
 import { Component as AILoader } from "@/components/ui/ai-loader";
 
-const colors = {
-  hero:       "#050a18",
-  about:      "#060e28",
-  experience: "#08102e",
-  tech:       "#041a28",
-  featured:   "#03080f",
-  works:      "#060e20",
-  testimonials: "#050a1c",
-  contact:    "#080a24",
-};
+// Hero keeps its own tone; every other section shares one slightly-brighter bg.
+const HERO_BG = "#050a18";
+const SECTION_BG = "#0f1a33";
 
 const MainPage = () => (
   <div className="relative">
     <div
       id="s-hero"
-      style={{ backgroundColor: colors.hero }}
+      style={{ backgroundColor: HERO_BG }}
       className="bg-hero-pattern bg-cover bg-no-repeat bg-center"
     >
       <Navbar />
       <Hero />
     </div>
 
-    <div id="s-about" style={{ backgroundColor: colors.about }}>
+    <div id="s-about" style={{ backgroundColor: SECTION_BG }}>
       <About />
     </div>
 
-    <div id="s-tech" style={{ backgroundColor: colors.tech }}>
+    <div id="s-tech" style={{ backgroundColor: SECTION_BG }}>
       <Tech />
     </div>
 
     <div
       id="s-featured"
-      style={{ backgroundColor: colors.featured }}
+      style={{ backgroundColor: SECTION_BG }}
       className="overflow-hidden"
     >
       <FeaturedWork />
     </div>
 
-    <div id="s-works" style={{ backgroundColor: colors.works }}>
+    <div id="s-works" style={{ backgroundColor: SECTION_BG }}>
       <Works />
     </div>
-    
-    <div id="s-experience" style={{ backgroundColor: colors.experience }}>
+
+    <div id="s-experience" style={{ backgroundColor: SECTION_BG }}>
       <Experience />
     </div>
-    
+
     <div
       id="s-testimonials"
-      style={{ backgroundColor: colors.testimonials }}
+      style={{ backgroundColor: SECTION_BG }}
     >
       <Testimonials />
     </div>
 
     <div
       id="s-contact"
-      style={{ backgroundColor: colors.contact }}
+      style={{ backgroundColor: SECTION_BG }}
       className="relative z-0"
     >
       <Contact />

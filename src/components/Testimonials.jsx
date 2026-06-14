@@ -73,6 +73,7 @@ const Testimonials = () => {
                 variant="light"
                 role="article"
                 aria-label={`Testimonial from ${testimonial.name}`}
+                className="border border-white/20 bg-white/[0.06] backdrop-blur-2xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.25),inset_0_-1px_1px_rgba(255,255,255,0.08),0_10px_40px_-8px_rgba(0,0,0,0.55)]"
               >
                 <div className="flex flex-col items-center space-y-4 text-center">
                   <ReviewStars
