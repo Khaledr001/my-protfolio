@@ -1,7 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
+const POINTER_QUERY = "(hover: hover) and (pointer: fine)";
+
 const CustomCursor = () => {
+  // Only enable on devices with a real (mouse) pointer — never on touch/mobile.
+  const [enabled, setEnabled] = useState(
+    () => typeof window !== "undefined" && window.matchMedia(POINTER_QUERY).matches
+  );
+
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
@@ -13,14 +20,25 @@ const CustomCursor = () => {
   const ringX = useSpring(mouseX, { damping: 28, stiffness: 120 });
   const ringY = useSpring(mouseY, { damping: 28, stiffness: 120 });
 
+  // React to device changes (e.g. plugging a mouse into a tablet)
   useEffect(() => {
+    const mq = window.matchMedia(POINTER_QUERY);
+    const update = () => setEnabled(mq.matches);
+    mq.addEventListener?.("change", update);
+    return () => mq.removeEventListener?.("change", update);
+  }, []);
+
+  useEffect(() => {
+    if (!enabled) return;
     const move = (e) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
     };
     window.addEventListener("mousemove", move);
     return () => window.removeEventListener("mousemove", move);
-  }, [mouseX, mouseY]);
+  }, [enabled, mouseX, mouseY]);
+
+  if (!enabled) return null;
 
   return (
     <>

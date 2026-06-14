@@ -26,11 +26,15 @@
 
 html {
   background-color: #050816;
+  /* clip (not hidden) prevents horizontal scroll without breaking the
+     sticky-scroll Experience section */
+  overflow-x: clip;
 }
 
 body {
   background-color: #050816;
   transition: background-color 1.1s ease;
+  overflow-x: clip;
 }
 
 * {

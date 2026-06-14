@@ -51,7 +51,10 @@ const Navbar = () => {
   const handleNavClick = (link) => {
     setActive(link.title);
     setToggle(false);
-    scrollToId(sectionMap[link.id]);
+    // Defer so closing the mobile menu (re-render + exit animation) doesn't
+    // interrupt the smooth-scroll that was just started.
+    const id = sectionMap[link.id];
+    window.requestAnimationFrame(() => scrollToId(id));
   };
 
   return (
@@ -184,7 +187,7 @@ const Navbar = () => {
                     type="button"
                     onClick={() => {
                       setToggle(false);
-                      scrollToId("s-contact");
+                      window.requestAnimationFrame(() => scrollToId("s-contact"));
                     }}
                     size="lg"
                     className="w-full text-white"

@@ -102,7 +102,7 @@ const Experience = () => {
           }}
         />
 
-        <div className="relative z-10 h-full flex flex-col w-full py-8">
+        <div className="relative z-10 h-full w-full max-w-7xl mx-auto flex flex-col py-8 px-6 sm:px-10 lg:px-16">
 
           {/* Heading */}
           <motion.div
@@ -237,7 +237,7 @@ const Experience = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.4 }}
-                  className="flex flex-col justify-center"
+                  className="flex flex-col justify-center md:pr-8"
                 >
                   <p
                     className="text-xs font-bold tracking-widest uppercase mb-3"
@@ -308,7 +308,7 @@ const Experience = () => {
               </AnimatePresence>
 
               {/* Progress dots */}
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col gap-3">
+              <div className="absolute right-0 top-1/2 hidden -translate-y-1/2 flex-col gap-3 md:flex">
                 {experiences.map((_, i) => (
                   <motion.button
                     key={i}
