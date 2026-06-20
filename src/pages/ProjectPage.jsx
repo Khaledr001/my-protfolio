@@ -85,6 +85,17 @@ const ProjectPage = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [slug]);
 
+  // Per-route document title for SEO / sharing; restore on unmount.
+  useEffect(() => {
+    const previous = document.title;
+    if (project) {
+      document.title = `${project.name} | Syed Khaled Hossain`;
+    }
+    return () => {
+      document.title = previous;
+    };
+  }, [project]);
+
   const handleBack = (e) => {
     rippleNavigate(navigate, e.clientX, e.clientY, "/", () => {
       setTimeout(
