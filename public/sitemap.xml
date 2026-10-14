@@ -2,12 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://syedkhaled.netlify.app/</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://syedkhaled.netlify.app/projects/mazarini</loc>
+    <loc>https://syedkhaled.netlify.app/projects/isp-management-saas-platform</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -17,23 +17,18 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://syedkhaled.netlify.app/projects/isp-solution-backend</loc>
+    <loc>https://syedkhaled.netlify.app/projects/mazarini</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://syedkhaled.netlify.app/projects/chat-application</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://syedkhaled.netlify.app/projects/e-commerce-platform</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://syedkhaled.netlify.app/projects/employee-management-system</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 </urlset>

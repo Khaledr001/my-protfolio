@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base ───────────────────────────────────────────────────────────────── */
+@layer base {
+  :root {
+    color-scheme: dark;
+    --nav-height: 68px;
+  }
+
+  html {
+    background-color: #0B0F17;
+    -webkit-text-size-adjust: 100%;
+    overflow-x: clip;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    @apply bg-ink-950 font-sans text-fg antialiased;
+    overflow-x: clip;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  ::selection {
+    background: rgba(242, 166, 90, 0.35);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid #4FD1C5;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  section[id] {
+    scroll-margin-top: calc(var(--nav-height) + 8px);
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* ── Components ─────────────────────────────────────────────────────────── */
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-12;
+  }
+
+  .eyebrow {
+    @apply font-mono text-[11px] font-medium uppercase tracking-[0.24em] text-fg-subtle;
+  }
+
+  /* Oversized editorial headlines. */
+  .display {
+    @apply font-sans font-semibold text-fg;
+    letter-spacing: -0.045em;
+    line-height: 0.94;
+  }
+
+  .serif-accent {
+    @apply font-serif font-normal italic;
+    letter-spacing: -0.015em;
+  }
+
+  .text-signal {
+    background: linear-gradient(100deg, #F9D3A5 0%, #F2A65A 52%, #E8875A 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hairline {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  /* A quiet surface: mostly opaque so text stays readable over the scene. */
+  .panel {
+    @apply rounded-2xl border border-white/[0.08] bg-ink-900/80;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 font-mono text-[11.5px] tracking-wide text-fg-muted;
+  }
+
+  /* Masked lines for headline reveals. */
+  .line-mask {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 0.1em;
+    margin-bottom: -0.1em;
+  }
+  .line-mask > span {
+    display: block;
+  }
+
+  /* Animated data flow along SVG paths in the project diagrams. */
+  .flow {
+    stroke-dasharray: 3 7;
+    animation: flow 1.8s linear infinite;
+  }
+  .flow-slow {
+    stroke-dasharray: 2 8;
+    animation: flow 3.2s linear infinite;
+  }
+
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .link-underline:hover,
+  .link-underline:focus-visible {
+    background-size: 100% 1px;
+  }
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+/* Readability scrim over the 3D layer: a vignette everywhere, and a stronger
+   wash on small screens where text overlaps the scene. */
+.scene-scrim {
+  background:
+    radial-gradient(120% 90% at 50% 40%, transparent 55%, rgba(11, 15, 23, 0.75) 100%),
+    linear-gradient(to bottom, rgba(11, 15, 23, 0) 70%, rgba(11, 15, 23, 0.6) 100%);
+}
+@media (max-width: 1023px) {
+  .scene-scrim {
+    background:
+      linear-gradient(to bottom, rgba(11, 15, 23, 0.1) 0%, rgba(11, 15, 23, 0.55) 45%, rgba(11, 15, 23, 0.7) 100%),
+      radial-gradient(120% 90% at 50% 40%, transparent 50%, rgba(11, 15, 23, 0.8) 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
