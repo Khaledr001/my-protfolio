@@ -3,6 +3,7 @@ import { ArrowUpRight, Check, Copy, Download, Mail } from "lucide-react";
 
 import { revealIn, useScrollMotion } from "@/animations/useScrollMotion";
 import { BrandIcon } from "@/components/ui/BrandIcon";
+import { SideScrim } from "@/components/ui/SideScrim";
 import { ContactForm } from "@/components/ui/ContactForm";
 import { profile, socials } from "@/data/profile";
 import { contactFormEnabled } from "@/lib/emailjs";
@@ -24,7 +25,7 @@ function CopyEmailButton() {
       type="button"
       onClick={copy}
       aria-label={copied ? "Email address copied" : "Copy email address"}
-      className="grid h-[52px] w-[52px] shrink-0 place-items-center rounded-full border border-white/15 text-fg-muted transition-colors hover:border-accent/60 hover:text-fg"
+      className="grid h-[52px] w-[52px] shrink-0 place-items-center rounded-full border border-line-strong text-fg-muted transition-colors hover:border-accent/60 hover:text-fg"
     >
       {copied ? (
         <Check aria-hidden="true" className="h-4 w-4 text-cool-soft" />
@@ -50,6 +51,7 @@ export function Contact() {
       aria-labelledby="contact-title"
       className="relative flex min-h-[100svh] items-center py-28 sm:py-36"
     >
+      <SideScrim side="left" width="w-[58%]" />
       <div className="container-x grid lg:grid-cols-12">
         <div className="lg:col-span-8 xl:col-span-7">
           <p className="eyebrow flex items-center gap-3" data-reveal>
@@ -60,7 +62,7 @@ export function Contact() {
 
           <h2
             id="contact-title"
-            className="display mt-7 text-[clamp(2.4rem,4.4vw,4.25rem)]"
+            className="display mt-7 text-[clamp(2.25rem,4.1vw,3.9rem)]"
             data-reveal-lines
           >
             <span className="line-mask">
@@ -69,12 +71,12 @@ export function Contact() {
             <span className="line-mask">
               <span>
                 Let&rsquo;s engineer the{" "}
-                <span className="serif-accent text-signal pr-[0.06em]">solution.</span>
+                <span className="accent-word">solution.</span>
               </span>
             </span>
           </h2>
 
-          <p className="mt-8 max-w-xl text-[17px] leading-relaxed text-fg-muted sm:text-lg" data-reveal>
+          <p className="mt-8 max-w-xl text-[17px] leading-[1.7] text-fg-muted sm:text-lg" data-reveal>
             Open to software engineering opportunities and collaborations in backend
             systems, SaaS, and AI-powered products.
           </p>
@@ -98,11 +100,11 @@ export function Contact() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex h-11 items-center gap-2.5 rounded-full border border-white/15 px-5 text-[14px] text-fg transition-colors hover:border-accent/60 hover:bg-white/[0.05]"
+                  className="inline-flex h-11 items-center gap-2.5 rounded-full border border-line-strong px-5 text-[14px] text-fg transition-colors hover:border-accent/60 hover:bg-white/[0.05]"
                 >
                   <BrandIcon id={social.id} className="h-4 w-4" />
                   {social.label}
-                  <span className="font-mono text-[11px] text-fg-subtle">{social.handle}</span>
+                  <span className="meta">{social.handle}</span>
                   <span className="sr-only">(opens in a new tab)</span>
                 </a>
               </li>
@@ -111,11 +113,11 @@ export function Contact() {
               <a
                 href={profile.resumeUrl}
                 download={profile.resumeFileName}
-                className="inline-flex h-11 items-center gap-2.5 rounded-full border border-white/15 px-5 text-[14px] text-fg transition-colors hover:border-accent/60 hover:bg-white/[0.05]"
+                className="inline-flex h-11 items-center gap-2.5 rounded-full border border-line-strong px-5 text-[14px] text-fg transition-colors hover:border-accent/60 hover:bg-white/[0.05]"
               >
                 <Download aria-hidden="true" className="h-4 w-4" />
                 Download CV
-                <span className="font-mono text-[11px] text-fg-subtle">PDF</span>
+                <span className="meta">PDF</span>
               </a>
             </li>
           </ul>

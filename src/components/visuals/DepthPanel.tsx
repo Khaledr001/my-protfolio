@@ -46,7 +46,7 @@ export function DepthPanel({ accent, label, children, className }: DepthPanelPro
         onPointerMove={onMove}
         onPointerLeave={onLeave}
         style={{ "--accent": accent } as CSSProperties}
-        className="relative aspect-[4/3] overflow-hidden rounded-[20px] border border-white/[0.09] bg-ink-900 shadow-[0_40px_120px_-40px_rgba(0,0,0,0.9)] transition-transform duration-500 ease-out [transform-style:preserve-3d] [transform:rotateX(var(--rx,0deg))_rotateY(var(--ry,0deg))]"
+        className="relative aspect-[4/3] overflow-hidden rounded-[20px] border border-line bg-ink-900 shadow-[0_40px_120px_-40px_rgba(0,0,0,0.9)] transition-transform duration-500 ease-out [transform-style:preserve-3d] [transform:rotateX(var(--rx,0deg))_rotateY(var(--ry,0deg))]"
       >
         {/* Plane 0: blueprint grid */}
         <div
@@ -62,7 +62,7 @@ export function DepthPanel({ accent, label, children, className }: DepthPanelPro
         <div className="absolute inset-0 [transform:translateZ(40px)]" data-depth-layer>
           {children}
         </div>
-        <span className="absolute left-4 top-4 hidden font-mono sm:block text-[10px] uppercase tracking-[0.22em] text-fg-subtle">
+        <span className="absolute left-4 top-4 hidden text-[11.5px] font-semibold uppercase tracking-[0.12em] text-fg-subtle sm:block">
           {label}
         </span>
       </div>

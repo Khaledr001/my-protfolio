@@ -36,6 +36,8 @@ Add `?no3d` to the URL to preview the no-WebGL fallback.
 | `src/three/workspace/` | The desk: room, devices, props, floating UI cards, screen content |
 | `src/three/workspace/codeContent.ts` | The code shown on the monitor and laptop |
 | `src/three/stages.ts` | Camera shot for each scene |
+| `src/three/avatar/` | The seated developer: rig (IK arms, hands, face, chair) and one gesture per chapter |
+| `src/data/avatar.ts` | The avatar's look: skin, hair, beard, glasses, clothes |
 | `src/animations/` | Scroll orchestration (story store, ScrollTrigger hooks) |
 
 Scroll position → `story` (in `src/animations/story.ts`) → the scene eases toward

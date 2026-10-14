@@ -33,6 +33,9 @@ export interface FrameState {
   time: number;
   /** Intro "power on" progress, 0 → 1. */
   power: number;
+  /** Where the coffee mug is (desk or the avatar's hand), world space. */
+  mugPosition: THREE.Vector3;
+  mugQuaternion: THREE.Quaternion;
   reduced: boolean;
   pointer: THREE.Vector2;
   cameraPosition: THREE.Vector3;
@@ -49,6 +52,8 @@ export const createFrameState = (): FrameState => ({
   work: 0,
   time: 0,
   power: 0,
+  mugPosition: new THREE.Vector3(...SPOT.mug),
+  mugQuaternion: new THREE.Quaternion(),
   reduced: false,
   pointer: new THREE.Vector2(),
   cameraPosition: new THREE.Vector3(3, 1.8, 4.4),
@@ -64,9 +69,8 @@ export const createFrameState = (): FrameState => ({
 // Wide layouts put text on one side and the desk on the other; narrow layouts
 // stack them, so the desk is lifted into the top of the frame.
 
-const mug = SPOT.mug;
 const screen = SPOT.monitorScreen;
-const laptop = SPOT.laptopScreen;
+const avatar = SPOT.avatar;
 
 const wideStages: StageState[] = [
   // 01 · The signal — the whole desk, lamp on, code being written.
@@ -79,10 +83,10 @@ const wideStages: StageState[] = [
     panels: 1,
     particles: 1,
   },
-  // 02 · The engineer — close on the coffee and the keyboard.
+  // 02 · The engineer — profile of the avatar drinking coffee.
   {
-    cameraPosition: [-1.62, 0.62, 1.32],
-    cameraTarget: [mug[0] + 0.05, 0.36, mug[2] - 0.05],
+    cameraPosition: [-3.1, 0.9, 0.15],
+    cameraTarget: [avatar[0] - 0.25, 0.48, avatar[2] - 0.15],
     viewShift: [-0.46, 0.02],
     lamp: 1.1,
     screen: 0.9,
@@ -101,8 +105,8 @@ const wideStages: StageState[] = [
   },
   // 04 · The architecture — from above: the desk as a layout diagram.
   {
-    cameraPosition: [0.3, 4.9, 1.15],
-    cameraTarget: [0, 0, -0.05],
+    cameraPosition: [0.3, 5.2, 1.7],
+    cameraTarget: [0, 0, 0.2],
     viewShift: [0.44, 0],
     lamp: 0.95,
     screen: 1,
@@ -111,10 +115,10 @@ const wideStages: StageState[] = [
   },
   // 05 · The journey — over the shoulder onto the code review.
   {
-    // Along the laptop screen's normal, so the review faces the reader.
-    cameraPosition: [0.12, 0.86, 1.32],
-    cameraTarget: [laptop[0] - 0.02, laptop[1] + 0.02, laptop[2]],
-    viewShift: [0.4, 0],
+    // Over the avatar's shoulder, onto the review on the laptop.
+    cameraPosition: [2.45, 1.0, 2.25],
+    cameraTarget: [0.3, 0.38, 0.5],
+    viewShift: [0.34, 0],
     lamp: 0.9,
     screen: 1.05,
     panels: 0,
@@ -134,10 +138,10 @@ const wideStages: StageState[] = [
 
 const narrowStages: StageState[] = [
   { ...wideStages[0], cameraPosition: [2.7, 2.3, 6.6], cameraTarget: [0, 0.42, -0.1], viewShift: [0, 0.3] },
-  { ...wideStages[1], cameraPosition: [-0.45, 0.95, 2.05], cameraTarget: [mug[0] + 0.2, 0.4, mug[2]], viewShift: [0, 0.28] },
+  { ...wideStages[1], cameraPosition: [-2.6, 0.95, 0.6], viewShift: [0, 0.28] },
   { ...wideStages[2], cameraPosition: [0.45, 1.1, 2.6], viewShift: [0, 0.22] },
-  { ...wideStages[3], cameraPosition: [0.2, 6.6, 1.6], viewShift: [0, 0.24] },
-  { ...wideStages[4], cameraPosition: [0.0, 1.0, 1.9], viewShift: [0, 0.26] },
+  { ...wideStages[3], cameraPosition: [0.2, 6.9, 2.0], viewShift: [0, 0.24] },
+  { ...wideStages[4], cameraPosition: [2.6, 1.3, 3.2], viewShift: [0, 0.26] },
   { ...wideStages[5], cameraPosition: [2.9, 2.2, 6.8], cameraTarget: [0, 0.42, -0.2], viewShift: [0, 0.3] },
 ];
 

@@ -74,21 +74,21 @@ export function Skills() {
             lines={[
               "Layered like",
               <>
-                the <span className="serif-accent text-signal">systems</span> I build.
+                the <span className="accent-word">systems</span> I build.
               </>,
             ]}
             intro="No percentages, no star ratings. These are the tools I reach for in production, grouped by the layer of a system they belong to."
           />
 
-          <ol className="mt-16">
+          <ol className="mt-14">
             {skillLayers.map((layer, i) => (
               <li
                 key={layer.id}
                 data-stack-layer
                 aria-current={active === i ? "step" : undefined}
                 className={cn(
-                  "relative py-10 transition-opacity duration-500 lg:py-14",
-                  active === i ? "opacity-100" : "lg:opacity-[0.55]",
+                  "card relative mt-4 px-6 py-7 transition-[opacity,border-color] duration-500 sm:px-8",
+                  active === i ? "border-accent/50 opacity-100" : "lg:opacity-[0.78]",
                 )}
               >
                 <span
@@ -97,17 +97,17 @@ export function Skills() {
                   className="absolute inset-x-0 top-0 h-px origin-left bg-gradient-to-r from-accent/70 via-white/10 to-transparent"
                 />
                 <div className="flex items-baseline gap-4">
-                  <span className="font-mono text-[11px] text-accent">
+                  <span className="meta text-accent">
                     L{String(i + 1).padStart(2, "0")}
                   </span>
                   <h3 className="text-[clamp(1.5rem,2.4vw,2rem)] font-semibold tracking-tight text-fg">
                     {layer.name}
                   </h3>
-                  <span className="ml-auto hidden font-mono text-[10.5px] uppercase tracking-[0.2em] text-fg-subtle sm:block">
+                  <span className="ml-auto hidden text-[12px] font-semibold uppercase tracking-[0.12em] text-fg-subtle sm:block">
                     {layer.layer}
                   </span>
                 </div>
-                <p className="mt-3 max-w-lg pl-[2.4rem] text-[15px] leading-relaxed text-fg-muted">
+                <p className="mt-3 max-w-lg pl-[2.4rem] text-[16px] leading-[1.7] text-fg-muted">
                   {layer.summary}
                 </p>
                 <ul className="mt-5 flex flex-wrap gap-2 pl-[2.4rem]">

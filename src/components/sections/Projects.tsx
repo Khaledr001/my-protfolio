@@ -63,7 +63,7 @@ export function Projects() {
           lines={[
             "Selected",
             <>
-              <span className="serif-accent text-signal">systems</span>, end to end.
+              <span className="accent-word">systems</span>, end to end.
             </>,
           ]}
           intro="Four systems, from multi-tenant billing to retrieval-grounded AI. Each one is shown as its architecture, with the problem it solved and what made it work."
@@ -81,12 +81,12 @@ export function Projects() {
         </div>
 
         {/* More work: compact index of the remaining case studies */}
-        <div className="mt-10 border-t border-white/[0.07] pt-20">
+        <div className="mt-10 border-t border-line pt-20">
           <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <h3 className="display text-[clamp(1.8rem,3vw,2.6rem)]" data-reveal>
               More work
             </h3>
-            <p className="max-w-md text-[15px] text-fg-muted" data-reveal>
+            <p className="max-w-md text-[16px] text-fg-muted" data-reveal>
               Case studies with screenshots, live demos and source code.
             </p>
           </div>
@@ -96,9 +96,9 @@ export function Projects() {
               <li key={study.slug} data-more-row>
                 <Link
                   to={`/projects/${study.slug}`}
-                  className="group grid grid-cols-[auto_1fr_auto] items-center gap-x-5 gap-y-1 border-b border-white/[0.07] py-6 transition-colors hover:bg-white/[0.02] sm:grid-cols-[3rem_1.2fr_1fr_auto] sm:gap-x-8 sm:px-2"
+                  className="group grid grid-cols-[auto_1fr_auto] items-center gap-x-5 gap-y-1 border-b border-line py-6 transition-colors hover:bg-white/[0.02] sm:grid-cols-[3rem_1.2fr_1fr_auto] sm:gap-x-8 sm:px-2"
                 >
-                  <span className="font-mono text-[11px] text-fg-subtle">
+                  <span className="meta">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span>
@@ -114,7 +114,7 @@ export function Projects() {
                       </span>
                     ))}
                   </span>
-                  <span className="grid h-10 w-10 place-items-center rounded-full border border-white/10 transition-all duration-300 group-hover:border-accent/60 group-hover:bg-accent/10">
+                  <span className="grid h-10 w-10 place-items-center rounded-full border border-line transition-all duration-300 group-hover:border-accent/60 group-hover:bg-accent/10">
                     <ArrowRight aria-hidden="true" className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
                   </span>
                 </Link>

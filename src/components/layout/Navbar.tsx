@@ -63,7 +63,7 @@ export function Navbar({ active, progressRef }: NavbarProps) {
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500",
           scrolled || open
-            ? "border-b border-white/[0.06] bg-ink-950/75 backdrop-blur-xl"
+            ? "border-b border-line bg-ink-950/75 backdrop-blur-xl"
             : "border-b border-transparent",
         )}
       >
@@ -76,7 +76,7 @@ export function Navbar({ active, progressRef }: NavbarProps) {
             className="group flex items-center gap-3"
             aria-label={`${profile.name}, back to top`}
           >
-            <span className="grid h-9 w-9 place-items-center rounded-full border border-white/15 font-mono text-[10.5px] font-semibold tracking-wider text-fg transition-colors group-hover:border-accent/70">
+            <span className="grid h-9 w-9 place-items-center rounded-full border border-line-strong font-mono text-[10.5px] font-semibold tracking-wider text-fg transition-colors group-hover:border-accent/70">
               {profile.initials}
             </span>
             <span className="hidden text-[14px] font-medium tracking-tight text-fg sm:block">
@@ -93,7 +93,7 @@ export function Navbar({ active, progressRef }: NavbarProps) {
                     href={`#${chapter.id}`}
                     aria-current={isActive ? "true" : undefined}
                     className={cn(
-                      "relative rounded-full px-3.5 py-2 text-[13.5px] transition-colors",
+                      "relative rounded-full px-3.5 py-2 text-[14.5px] font-medium transition-colors",
                       isActive ? "text-fg" : "text-fg-subtle hover:text-fg",
                     )}
                   >
@@ -114,7 +114,7 @@ export function Navbar({ active, progressRef }: NavbarProps) {
           <div className="flex items-center gap-2">
             <a
               href={`mailto:${profile.email}`}
-              className="hidden h-10 items-center gap-2 rounded-full border border-white/15 px-4 text-[13.5px] font-medium text-fg transition-colors hover:border-accent/60 hover:bg-white/[0.04] sm:inline-flex"
+              className="hidden h-10 items-center gap-2 rounded-full border border-line-strong px-4 text-[13.5px] font-medium text-fg transition-colors hover:border-accent/60 hover:bg-white/[0.04] sm:inline-flex"
             >
               Let&rsquo;s talk
               <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
@@ -122,7 +122,7 @@ export function Navbar({ active, progressRef }: NavbarProps) {
             <button
               ref={toggleRef}
               type="button"
-              className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-fg lg:hidden"
+              className="grid h-10 w-10 place-items-center rounded-full border border-line-strong text-fg lg:hidden"
               aria-expanded={open}
               aria-controls="mobile-menu"
               aria-label={open ? "Close menu" : "Open menu"}
@@ -152,7 +152,7 @@ export function Navbar({ active, progressRef }: NavbarProps) {
         >
           <ul className="container-x flex flex-col pt-8">
             {links.map((chapter, i) => (
-              <li key={chapter.id} className="border-b border-white/[0.07]">
+              <li key={chapter.id} className="border-b border-line">
                 <a
                   ref={i === 0 ? firstLinkRef : undefined}
                   href={`#${chapter.id}`}
@@ -160,7 +160,7 @@ export function Navbar({ active, progressRef }: NavbarProps) {
                   className="flex items-baseline justify-between py-5"
                 >
                   <span className="display text-[2.4rem]">{chapter.nav}</span>
-                  <span className="font-mono text-xs text-fg-subtle">{chapter.number}</span>
+                  <span className="meta">{chapter.number}</span>
                 </a>
               </li>
             ))}

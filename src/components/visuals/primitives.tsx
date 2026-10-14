@@ -2,7 +2,8 @@ import type { ReactNode } from "react";
 
 // Shared SVG building blocks for the architecture diagrams (viewBox 480×360).
 
-export const MUTED = "#8B93A7";
+export const MUTED = "#A9B0C2";
+const SANS = "Inter Variable, sans-serif";
 export const LINE = "rgba(255,255,255,0.16)";
 
 interface BoxProps {
@@ -39,7 +40,7 @@ export function Box({ x, y, w, h, label, sub, accent = "#F2A65A", strong, dashed
         y={y + h / 2 + (sub ? -3 : 4)}
         textAnchor="middle"
         fontFamily="JetBrains Mono Variable, monospace"
-        fontSize={10.5}
+        fontSize={11.5}
         fill="#E9E6DF"
       >
         {label}
@@ -49,8 +50,8 @@ export function Box({ x, y, w, h, label, sub, accent = "#F2A65A", strong, dashed
           x={x + w / 2}
           y={y + h / 2 + 12}
           textAnchor="middle"
-          fontFamily="JetBrains Mono Variable, monospace"
-          fontSize={8.5}
+          fontFamily={SANS}
+          fontSize={9.5}
           fill={MUTED}
         >
           {sub}
@@ -93,9 +94,10 @@ export function Caption({ x, y, children, anchor = "start" }: {
       x={x}
       y={y}
       textAnchor={anchor}
-      fontFamily="JetBrains Mono Variable, monospace"
-      fontSize={8.5}
-      letterSpacing={1.2}
+      fontFamily={SANS}
+      fontSize={9.5}
+      fontWeight={600}
+      letterSpacing={1}
       fill={MUTED}
     >
       {children}

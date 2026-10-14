@@ -25,11 +25,12 @@
     @apply bg-ink-950 font-sans text-fg antialiased;
     overflow-x: clip;
     text-rendering: optimizeLegibility;
-    font-feature-settings: "ss01", "cv11";
+    /* Inter: tailed "l" and open digits keep similar glyphs distinct. */
+    font-feature-settings: "cv05", "cv08", "ss01";
   }
 
   ::selection {
-    background: rgba(242, 166, 90, 0.35);
+    background: rgba(242, 166, 90, 0.4);
     color: #fff;
   }
 
@@ -55,27 +56,34 @@
     @apply mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-12;
   }
 
+  /* Section labels: teal (the secondary accent), sans, readable size. */
   .eyebrow {
-    @apply font-mono text-[11px] font-medium uppercase tracking-[0.24em] text-fg-subtle;
+    @apply text-[12.5px] font-semibold uppercase tracking-[0.14em] text-cool-soft;
+  }
+
+  /* Small supporting text: dates, counters, handles. */
+  .meta {
+    @apply text-[13.5px] font-medium text-fg-subtle;
   }
 
   /* Oversized editorial headlines. */
   .display {
-    @apply font-sans font-semibold text-fg;
-    letter-spacing: -0.045em;
-    line-height: 0.94;
+    @apply font-display font-bold text-fg;
+    letter-spacing: -0.035em;
+    line-height: 1;
   }
 
-  .serif-accent {
-    @apply font-serif font-normal italic;
-    letter-spacing: -0.015em;
+  /* The highlighted word in a headline: solid amber, same face and weight
+     (thin italics and gradients lose legibility over the scene). */
+  .accent-word {
+    @apply text-accent;
   }
 
-  .text-signal {
-    background: linear-gradient(100deg, #F9D3A5 0%, #F2A65A 52%, #E8875A 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+  /* Solid reading surface with a visible border. */
+  .card {
+    @apply overflow-hidden rounded-2xl border border-line bg-surface/[0.92] shadow-[0_24px_60px_-30px_rgba(0,0,0,0.8)];
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
 
   .hairline {
@@ -84,13 +92,13 @@
 
   /* A quiet surface: mostly opaque so text stays readable over the scene. */
   .panel {
-    @apply rounded-2xl border border-white/[0.08] bg-ink-900/80;
+    @apply rounded-2xl border border-line bg-surface/[0.92];
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
   }
 
   .chip {
-    @apply inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 font-mono text-[11.5px] tracking-wide text-fg-muted;
+    @apply inline-flex items-center rounded-full border border-line-strong bg-surface-raised px-3 py-1 text-[13px] font-medium text-fg;
   }
 
   /* Masked lines for headline reveals. */
@@ -131,6 +139,17 @@
   to {
     stroke-dashoffset: -40;
   }
+}
+
+/* Copy floats over a 3D scene: a soft shadow keeps edges crisp on any
+   background. Gradient-clipped text must not get one (it would show through). */
+main :is(h1, h2, h3, h4, p, li, dd, dt) {
+  text-shadow:
+    0 1px 2px rgba(6, 8, 14, 0.6),
+    0 0 28px rgba(6, 8, 14, 0.5);
+}
+main .card :is(h1, h2, h3, h4, p, li, dd, dt) {
+  text-shadow: none;
 }
 
 /* Readability scrim over the 3D layer: a vignette everywhere, and a stronger

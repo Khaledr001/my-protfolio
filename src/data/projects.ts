@@ -172,6 +172,17 @@ export const featuredProjects: FeaturedProject[] = [
 
 // ── Case studies (/projects/:slug) ──────────────────────────────────────────
 
+/** A product screenshot; dimensions reserve space so frames don't shift. */
+export interface Screen {
+  src: string;
+  device: "desktop" | "mobile";
+  width: number;
+  height: number;
+}
+
+const desktop = (src: string, width = 1920, height = 864): Screen => ({ src, device: "desktop", width, height });
+const mobile = (src: string, width = 430, height = 757): Screen => ({ src, device: "mobile", width, height });
+
 export interface CaseStudy {
   slug: string;
   name: string;
@@ -180,7 +191,7 @@ export interface CaseStudy {
   note?: string;
   tags: string[];
   points: string[];
-  images: string[];
+  screens: Screen[];
   liveUrl?: string;
   sourceUrl?: string;
   demoLogin?: string;
@@ -202,7 +213,7 @@ export const caseStudies: CaseStudy[] = [
       "Engineered an **offline-first POS** terminal with **Dexie.js** that queues sales in IndexedDB during outages and syncs on reconnect.",
       "**PostgreSQL Row-Level Security** through an EF Core interceptor, plus **global tenant query filters**.",
     ],
-    images: [pos, pos_terminal],
+    screens: [desktop(pos, 1918, 859), desktop(pos_terminal, 1918, 866)],
     liveUrl: "https://pos.devsfleet.com",
     demoLogin: "demo@demo.com",
     demoPassword: "Demo123!",
@@ -225,7 +236,7 @@ export const caseStudies: CaseStudy[] = [
       "Redis caching for hot data, background queues for heavy operations and idempotent API design.",
       "Angular admin portal with NgRx state management and dynamic forms; the whole stack runs under docker-compose.",
     ],
-    images: [isp, isp_mobile],
+    screens: [desktop(isp, 1920, 863), mobile(isp_mobile, 429, 757)],
     liveUrl: "https://isp.devsfleet.com",
     demoLogin: "demo",
     demoPassword: "123456",
@@ -243,7 +254,7 @@ export const caseStudies: CaseStudy[] = [
       "Containerized and deployed the full stack with **Docker, PostgreSQL and Nginx**, achieving dev/production parity.",
       "Implemented a technical SEO pipeline: dynamic metadata, sitemap.xml and robots.txt.",
     ],
-    images: [mazarini, mazarini1, mazarini_mobile],
+    screens: [desktop(mazarini, 1920, 866), desktop(mazarini1, 1918, 866), mobile(mazarini_mobile, 431, 757)],
     liveUrl: "https://mazarinigroup.com/",
   },
   {
@@ -259,7 +270,7 @@ export const caseStudies: CaseStudy[] = [
       "**File and media sharing** with upload handling and message persistence in **MongoDB**.",
       "NestJS backend organised into modular gateways, services and validated DTOs.",
     ],
-    images: [chat_app],
+    screens: [desktop(chat_app, 1598, 730)],
     sourceUrl: "https://github.com/Khaledr001/chat-app",
   },
   {
@@ -275,7 +286,7 @@ export const caseStudies: CaseStudy[] = [
       "**Admin panel** for inventory, product and order administration.",
       "Responsive React and Tailwind CSS frontend on a Node.js / MongoDB REST API.",
     ],
-    images: [eCommerce],
+    screens: [desktop(eCommerce, 1918, 958)],
     sourceUrl: "https://github.com/Khaledr001/eCommerce",
   },
 ];

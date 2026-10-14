@@ -11,10 +11,21 @@ export default {
           800: "#182033",
           700: "#232C42",
         },
+        // Text tiers, all ≥ 4.5:1 on ink-950 and on surface.
         fg: {
-          DEFAULT: "#E9E6DF",
-          muted: "#B2B6C3",
-          subtle: "#8B93A7",
+          DEFAULT: "#F4F2ED",
+          muted: "#C9CED9",
+          subtle: "#9CA5BA",
+        },
+        // Solid reading surfaces that sit over the 3D scene.
+        surface: {
+          DEFAULT: "#121826",
+          raised: "#19213A",
+        },
+        // Borders that stay visible on dark backgrounds.
+        line: {
+          DEFAULT: "#283247",
+          strong: "#3B4762",
         },
         // Warm lamp / coffee light: the primary accent.
         accent: {
@@ -29,8 +40,9 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['"Geist Variable"', "ui-sans-serif", "system-ui", "sans-serif"],
-        serif: ['"Instrument Serif"', "ui-serif", "Georgia", "serif"],
+        // Inter for everything you read; Space Grotesk for headlines.
+        sans: ['"Inter Variable"', "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ['"Space Grotesk Variable"', "ui-sans-serif", "system-ui", "sans-serif"],
         mono: ['"JetBrains Mono Variable"', "ui-monospace", "SFMono-Regular", "monospace"],
       },
       screens: {

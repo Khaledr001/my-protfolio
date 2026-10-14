@@ -5,7 +5,7 @@ import { profile, socials } from "@/data/profile";
 
 export function Footer() {
   return (
-    <footer className="relative z-10 border-t border-white/[0.07] bg-ink-950/80">
+    <footer className="relative z-10 border-t border-line bg-ink-950/80">
       <div className="container-x flex flex-col gap-6 py-10 text-[13px] text-fg-subtle md:flex-row md:items-center md:justify-between">
         <p>
           &copy; {new Date().getFullYear()} {profile.name} · {profile.location}

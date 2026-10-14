@@ -24,7 +24,7 @@ export function SectionHeader({ chapter, lines, id, intro, className }: SectionH
       </p>
       <h2
         id={id}
-        className="display mt-6 text-[clamp(2.4rem,6vw,5.25rem)]"
+        className="display mt-6 text-[clamp(2.25rem,4.9vw,4.4rem)]"
         data-reveal-lines
       >
         {lines.map((line, i) => (
@@ -35,7 +35,7 @@ export function SectionHeader({ chapter, lines, id, intro, className }: SectionH
       </h2>
       {intro && (
         <p
-          className="mt-7 max-w-2xl text-[17px] leading-relaxed text-fg-muted sm:text-lg"
+          className="mt-7 max-w-2xl text-[17px] leading-[1.7] text-fg-muted sm:text-lg"
           data-reveal
         >
           {intro}

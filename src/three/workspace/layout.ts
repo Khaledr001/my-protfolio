@@ -13,7 +13,9 @@ export const SPOT = {
   laptopScreen: [0.92, 0.26, -0.14] as V3,
   keyboard: [-0.15, 0, 0.3] as V3,
   mouse: [0.5, 0, 0.32] as V3,
-  mug: [-1.1, 0, 0.3] as V3,
+  mug: [-0.84, 0, 0.47] as V3,
+  /** Floor point under the avatar's chair. */
+  avatar: [-0.15, 0, 0.92] as V3,
   lamp: [-1.42, 0, -0.5] as V3,
   lampTarget: [-0.7, 0, 0.12] as V3,
   plant: [1.4, 0, -0.48] as V3,
@@ -21,3 +23,8 @@ export const SPOT = {
   wallZ: -1.6,
   floorY: -1.05,
 } as const;
+
+/** The mug is modelled large; this brings it to hand size next to the avatar. */
+export const MUG_SCALE = 0.62;
+/** Where a hand holds the handle, in (unscaled) mug space. */
+export const MUG_GRIP: V3 = [0.2, 0.15, 0];

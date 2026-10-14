@@ -7,6 +7,19 @@ import { notifyStory, story } from "./story";
 const sum = (values: number[]) => values.reduce((total, v) => total + v, 0);
 
 /**
+ * How much to dim the 3D scene in each chapter: light in the hero and
+ * contact, stronger where there is a lot of copy to read.
+ */
+const SCENE_DIM = [0, 0.22, 0.32, 0.24, 0.32, 0.04];
+
+function applySceneDim(stage: number) {
+  const i = Math.min(Math.floor(stage), SCENE_DIM.length - 1);
+  const next = SCENE_DIM[Math.min(i + 1, SCENE_DIM.length - 1)];
+  const value = SCENE_DIM[i] + (next - SCENE_DIM[i]) * (stage - i);
+  document.documentElement.style.setProperty("--scene-dim", value.toFixed(3));
+}
+
+/**
  * Turns a list of elements into one continuous index: each element after the
  * first adds 0 → 1 as it scrolls from `start` to `end`. Returns a cleanup-free
  * setup (triggers live inside the caller's gsap.context).
@@ -60,6 +73,7 @@ export function useStoryTimeline(
       // Scene transitions happen while the next section rises into view.
       trackSequence(sections, "top bottom", "top 25%", (value) => {
         story.stage = value;
+        applySceneDim(value);
       });
 
       trackSequence(

@@ -60,7 +60,7 @@ function CrmDiagram({ accent }: DiagramProps) {
       {lanes.map((lane, i) => (
         <g key={lane.zone}>
           <rect x={28} y={lane.y} width={150} height={44} rx={9} fill="rgba(15,20,32,0.92)" stroke={LINE} />
-          <text x={42} y={lane.y + 26} fontFamily="JetBrains Mono Variable, monospace" fontSize={10} fill="#E9E6DF">
+          <text x={42} y={lane.y + 26} fontFamily="JetBrains Mono Variable, monospace" fontSize={11} fill="#E9E6DF">
             {lane.zone}
           </text>
           {Array.from({ length: 3 }, (_, d) => (

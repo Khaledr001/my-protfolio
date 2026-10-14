@@ -74,7 +74,7 @@ export function Experience() {
             lines={[
               "From first backend",
               <>
-                to <span className="serif-accent text-signal">production</span> systems.
+                to <span className="accent-word">production</span> systems.
               </>,
             ]}
           />
@@ -94,9 +94,9 @@ export function Experience() {
                   aria-hidden="true"
                   className="absolute -left-8 top-2 h-[11px] w-[11px] scale-75 rounded-full border border-white/30 bg-ink-950 sm:-left-10"
                 />
-                <article data-role-card className="grid gap-x-8 gap-y-3 sm:grid-cols-[9.5rem_1fr]">
-                  <div className="font-mono text-[11.5px] leading-relaxed text-fg-subtle">
-                    <p className="text-fg-muted">{role.period}</p>
+                <article data-role-card className="grid gap-x-8 gap-y-3 card p-5 sm:grid-cols-[9.5rem_1fr] sm:p-7">
+                  <div className="meta leading-[1.7]">
+                    <p className="font-semibold text-cool-soft">{role.period}</p>
                     <p>{role.location}</p>
                   </div>
                   <div>
@@ -105,10 +105,10 @@ export function Experience() {
                       <span className="text-fg-subtle"> · </span>
                       <span className="text-accent">{role.company}</span>
                     </h3>
-                    <p className="mt-1.5 text-[14.5px] text-fg-muted">{role.focus}</p>
+                    <p className="mt-1.5 text-[15.5px] text-fg-muted">{role.focus}</p>
                     <ul className="mt-5 space-y-2.5">
                       {role.points.map((point) => (
-                        <li key={point} className="flex gap-3 text-[15px] leading-relaxed text-fg-muted">
+                        <li key={point} className="flex gap-3 text-[16px] leading-[1.7] text-fg-muted">
                           <span aria-hidden="true" className="mt-[0.7em] h-px w-3 shrink-0 bg-white/30" />
                           {point}
                         </li>
@@ -128,11 +128,11 @@ export function Experience() {
           </ol>
 
           <div
-            className="mt-16 grid gap-x-8 gap-y-2 border-t border-white/[0.08] pt-8 sm:grid-cols-[9.5rem_1fr] sm:pl-10"
+            className="mt-16 grid gap-x-8 gap-y-2 border-t border-line pt-8 sm:grid-cols-[9.5rem_1fr] sm:pl-10"
             data-reveal
           >
-            <p className="font-mono text-[11.5px] text-fg-subtle">{education.period}</p>
-            <p className="text-[15px] text-fg-muted">
+            <p className="meta">{education.period}</p>
+            <p className="text-[16px] text-fg-muted">
               <span className="text-fg">{education.degree}</span> — {education.school}
             </p>
           </div>

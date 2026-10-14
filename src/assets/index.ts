@@ -1,13 +1,13 @@
 // Project screenshots used by the case-study pages and the "More work" index.
-import pos from "./projects/pos.png";
-import pos_terminal from "./projects/pos_terminal.png";
-import chat_app from "./projects/chat_app.png";
-import isp from "./projects/isp.png";
-import isp_mobile from "./projects/isp-mobile.png";
-import eCommerce from "./projects/eCommerce.png";
-import mazarini from "./projects/mazarini.png";
-import mazarini1 from "./projects/mazarini1.png";
-import mazarini_mobile from "./projects/mazarini-mobile.png";
+import pos from "./projects/pos.webp";
+import pos_terminal from "./projects/pos_terminal.webp";
+import chat_app from "./projects/chat_app.webp";
+import isp from "./projects/isp.webp";
+import isp_mobile from "./projects/isp-mobile.webp";
+import eCommerce from "./projects/eCommerce.webp";
+import mazarini from "./projects/mazarini.webp";
+import mazarini1 from "./projects/mazarini1.webp";
+import mazarini_mobile from "./projects/mazarini-mobile.webp";
 
 export {
   pos,

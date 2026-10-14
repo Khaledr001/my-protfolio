@@ -23,7 +23,7 @@ export function ProjectChapter({ project, index, total }: ProjectChapterProps) {
       data-work-item
       aria-labelledby={headingId}
       style={{ "--accent": project.accent } as CSSProperties}
-      className="grid items-start gap-x-14 gap-y-10 border-t border-white/[0.07] py-20 lg:grid-cols-12 lg:py-28"
+      className="grid items-start gap-x-14 gap-y-10 border-t border-line py-20 lg:grid-cols-12 lg:py-28"
     >
       {/* Visual */}
       <div className={cn("lg:col-span-7 lg:sticky lg:top-28", flip && "lg:order-2")}>
@@ -34,7 +34,7 @@ export function ProjectChapter({ project, index, total }: ProjectChapterProps) {
         </div>
         <ol
           aria-label={`${project.title} architecture`}
-          className="mt-5 flex flex-wrap items-center gap-x-2 gap-y-2 font-mono text-[11px] text-fg-subtle"
+          className="mt-5 flex flex-wrap items-center gap-x-2 gap-y-2 meta"
         >
           {project.architecture.map((step, i) => (
             <li key={step} className="flex items-center gap-2">
@@ -46,18 +46,18 @@ export function ProjectChapter({ project, index, total }: ProjectChapterProps) {
       </div>
 
       {/* Story */}
-      <div className={cn("lg:col-span-5", flip && "lg:order-1")}>
+      <div className={cn("card p-6 sm:p-8 lg:col-span-5", flip && "lg:order-1")}>
         <div className="flex items-center gap-4" data-reveal>
-          <span className="serif-accent text-[3.25rem] leading-none text-[var(--accent)]">
+          <span className="font-display text-[3rem] font-bold leading-none text-[var(--accent)]">
             {project.code}
           </span>
           <span className="h-px flex-1 bg-white/10" aria-hidden="true" />
-          <span className="font-mono text-[11px] text-fg-subtle">
+          <span className="meta">
             {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
           </span>
         </div>
 
-        <p className="mt-6 flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.18em] text-fg-muted" data-reveal>
+        <p className="mt-6 flex items-center gap-2.5 text-[12.5px] font-semibold uppercase tracking-[0.12em] text-cool-soft" data-reveal>
           <span
             aria-hidden="true"
             className={cn(
@@ -76,18 +76,18 @@ export function ProjectChapter({ project, index, total }: ProjectChapterProps) {
           {project.title}
         </h3>
 
-        <p className="mt-5 text-[16.5px] leading-relaxed text-fg-muted" data-reveal>
+        <p className="mt-5 text-[16.5px] leading-[1.7] text-fg-muted" data-reveal>
           {project.summary}
         </p>
 
         <dl className="mt-9 space-y-6" data-reveal>
           <div>
             <dt className="eyebrow">Problem</dt>
-            <dd className="mt-2 text-[15.5px] leading-relaxed text-fg">{project.problem}</dd>
+            <dd className="mt-2 text-[16.5px] leading-[1.7] text-fg">{project.problem}</dd>
           </div>
           <div>
             <dt className="eyebrow">Solution</dt>
-            <dd className="mt-2 text-[15.5px] leading-relaxed text-fg">{project.solution}</dd>
+            <dd className="mt-2 text-[16.5px] leading-[1.7] text-fg">{project.solution}</dd>
           </div>
         </dl>
 
@@ -95,7 +95,7 @@ export function ProjectChapter({ project, index, total }: ProjectChapterProps) {
           <h4 className="eyebrow">Technical highlights</h4>
           <ul className="mt-4 space-y-3">
             {project.highlights.map((point) => (
-              <li key={point} className="flex gap-3 text-[15px] leading-relaxed text-fg-muted">
+              <li key={point} className="flex gap-3 text-[16px] leading-[1.7] text-fg-muted">
                 <span aria-hidden="true" className="mt-[0.7em] h-px w-3 shrink-0 bg-[var(--accent)]" />
                 {point}
               </li>
@@ -112,7 +112,7 @@ export function ProjectChapter({ project, index, total }: ProjectChapterProps) {
         </ul>
 
         {project.note && (
-          <p className="mt-6 border-l border-[var(--accent)] pl-4 text-[13.5px] leading-relaxed text-fg-subtle" data-reveal>
+          <p className="mt-6 border-l border-[var(--accent)] pl-4 text-[13.5px] leading-[1.7] text-fg-subtle" data-reveal>
             {project.note}
           </p>
         )}

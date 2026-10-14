@@ -24,7 +24,7 @@ export const theme = {
 };
 
 const FONT = '"JetBrains Mono Variable", "JetBrains Mono", ui-monospace, monospace';
-const SANS = '"Geist Variable", ui-sans-serif, system-ui, sans-serif';
+const SANS = '"Inter Variable", ui-sans-serif, system-ui, sans-serif';
 
 const KEYWORDS = new Set(
   "import from export const let async await return if else for of new class private public readonly interface type extends implements throw try catch function this constructor".split(

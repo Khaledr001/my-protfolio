@@ -1,3 +1,4 @@
+import { Avatar } from "../avatar/Avatar";
 import type { Quality } from "../capabilities";
 import { CoffeeMug, DeskLamp, Notebook, Plant } from "./Props";
 import { Keyboard, Laptop, Monitor } from "./Devices";
@@ -17,6 +18,8 @@ export function Workspace({ quality, shadows }: WorkspaceProps) {
       <Monitor quality={quality} shadows={shadows} />
       <Laptop quality={quality} shadows={shadows} />
       <Keyboard shadows={shadows} />
+      {/* Before the mug: the avatar decides where the mug is each frame. */}
+      <Avatar shadows={shadows} />
       <CoffeeMug shadows={shadows} />
       <DeskLamp shadows={shadows} />
       <Plant shadows={shadows} />

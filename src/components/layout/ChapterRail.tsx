@@ -24,7 +24,7 @@ export function ChapterRail({ active }: ChapterRailProps) {
               >
                 <span
                   className={cn(
-                    "font-mono text-[10.5px] uppercase tracking-[0.2em] transition-all duration-500",
+                    "text-[11.5px] font-semibold uppercase tracking-[0.12em] transition-all duration-500",
                     // The active name only shows where there is room beside the content.
                     isActive ? "text-fg 2xl:translate-x-0 2xl:opacity-100" : "text-fg-subtle",
                     "translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100",
@@ -32,7 +32,7 @@ export function ChapterRail({ active }: ChapterRailProps) {
                 >
                   {chapter.name}
                 </span>
-                <span className="font-mono text-[10.5px] text-fg-subtle">{chapter.number}</span>
+                <span className="meta text-[12px]">{chapter.number}</span>
                 <span
                   aria-hidden="true"
                   className={cn(

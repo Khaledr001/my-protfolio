@@ -62,6 +62,8 @@ export const SceneLayer = memo(function SceneLayer() {
           </Suspense>
         </SceneErrorBoundary>
       )}
+      {/* Dims the scene more in text-heavy chapters (see useStoryTimeline). */}
+      <div className="absolute inset-0 bg-ink-950" style={{ opacity: "var(--scene-dim, 0)" }} />
       <div className="scene-scrim absolute inset-0" />
     </div>
   );

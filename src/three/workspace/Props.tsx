@@ -4,11 +4,12 @@ import * as THREE from "three";
 
 import { frame } from "../frame";
 import { simplexNoise } from "../shaders/noise";
-import { SPOT, type V3 } from "./layout";
+import { MUG_SCALE, SPOT, type V3 } from "./layout";
 
 interface PropProps {
   shadows: boolean;
 }
+
 
 // ── Coffee ──────────────────────────────────────────────────────────────────
 
@@ -62,8 +63,10 @@ function Steam() {
   useFrame(() => {
     const g = group.current;
     if (!g) return;
-    // Billboard around the vertical axis only, so the steam stays upright.
-    g.rotation.y = Math.atan2(camera.position.x - SPOT.mug[0], camera.position.z - SPOT.mug[2]);
+    // Follow the mug, billboarding around the vertical axis so steam stays upright.
+    const mug = frame.mugPosition;
+    g.position.set(mug.x, mug.y + 0.38, mug.z);
+    g.rotation.y = Math.atan2(camera.position.x - mug.x, camera.position.z - mug.z);
     materials.forEach((m) => {
       m.uniforms.uTime.value = frame.time;
       m.uniforms.uOpacity.value = frame.power;
@@ -71,10 +74,10 @@ function Steam() {
   });
 
   return (
-    <group ref={group} position={[SPOT.mug[0], 0.62, SPOT.mug[2]]}>
+    <group ref={group}>
       {materials.map((material, i) => (
-        <mesh key={i} position={[i * 0.05 - 0.025, i * 0.04, 0]} material={material}>
-          <planeGeometry args={[0.32, 0.62]} />
+        <mesh key={i} position={[i * 0.04 - 0.02, i * 0.03, 0]} material={material}>
+          <planeGeometry args={[0.24, 0.48]} />
         </mesh>
       ))}
     </group>
@@ -109,13 +112,22 @@ export function CoffeeMug({ shadows }: PropProps) {
     [resources],
   );
 
+  // The avatar decides where the mug is (frame.mug*); the coaster stays put.
+  const mugRef = useRef<THREE.Group>(null);
+  useFrame(() => {
+    if (!mugRef.current) return;
+    mugRef.current.position.copy(frame.mugPosition);
+    mugRef.current.position.y += 0.012;
+    mugRef.current.quaternion.copy(frame.mugQuaternion);
+  });
+
   return (
     <group>
-      <group position={SPOT.mug}>
-        <mesh position={[0, 0.006, 0]} material={resources.coaster} receiveShadow={shadows}>
-          <cylinderGeometry args={[0.18, 0.18, 0.012, 40]} />
-        </mesh>
-        <group position={[0, 0.012, 0]}>
+      <mesh position={[SPOT.mug[0], 0.006, SPOT.mug[2]]} material={resources.coaster} receiveShadow={shadows}>
+        <cylinderGeometry args={[0.12, 0.12, 0.012, 40]} />
+      </mesh>
+      <group ref={mugRef}>
+        <group scale={MUG_SCALE}>
           <mesh geometry={resources.body} material={resources.ceramic} castShadow={shadows} receiveShadow={shadows} />
           <mesh position={[0, 0.235, 0]} rotation-x={-Math.PI / 2} material={resources.coffee}>
             <circleGeometry args={[0.13, 40]} />

@@ -4,6 +4,7 @@ import { ArrowDown, ArrowRight } from "lucide-react";
 import { gsap } from "@/animations/gsap";
 import { useScrollMotion } from "@/animations/useScrollMotion";
 import { ButtonLink } from "@/components/ui/Button";
+import { SideScrim } from "@/components/ui/SideScrim";
 import { heroStack, profile } from "@/data/profile";
 
 export function Hero() {
@@ -38,6 +39,7 @@ export function Hero() {
       aria-labelledby="hero-title"
       className="relative flex min-h-[100svh] flex-col justify-end pb-10 pt-[calc(var(--nav-height)+2rem)] lg:justify-center lg:pb-0"
     >
+      <SideScrim side="left" width="w-[58%]" />
       <div className="container-x" data-hero-copy>
         <div className="max-w-[min(100%,58rem)] pt-[28vh] lg:pt-0">
           <p
@@ -53,11 +55,11 @@ export function Hero() {
 
           <h1
             id="hero-title"
-            className="display mt-7 text-[clamp(2.75rem,6.4vw,6.4rem)]"
+            className="display mt-7 text-[clamp(2.5rem,5.4vw,5.5rem)]"
           >
             <span className="line-mask">
               <span>
-                I engineer the <span className="serif-accent text-signal pr-[0.06em]">systems</span>
+                I engineer the <span className="accent-word">systems</span>
               </span>
             </span>
             <span className="line-mask">
@@ -66,7 +68,7 @@ export function Hero() {
           </h1>
 
           <p
-            className="mt-8 max-w-[34rem] text-[17px] leading-relaxed text-fg-muted sm:text-lg"
+            className="mt-8 max-w-[34rem] text-[17px] leading-[1.7] text-fg-muted sm:text-lg"
             data-hero-fade
           >
             I build reliable SaaS platforms, event-driven backends, and AI-powered
@@ -84,7 +86,7 @@ export function Hero() {
         </div>
 
         <div
-          className="mt-14 flex flex-col gap-6 border-t border-white/[0.08] pt-6 sm:flex-row sm:items-center sm:justify-between lg:mt-24"
+          className="mt-14 flex flex-col gap-6 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between lg:mt-24"
           data-hero-fade
         >
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
