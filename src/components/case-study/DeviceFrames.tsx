@@ -21,7 +21,7 @@ export function BrowserFrame({ address, children, className }: BrowserFrameProps
           <span className="h-2.5 w-2.5 rounded-full bg-cool/80" />
         </div>
         {address && (
-          <div className="mx-auto max-w-[60%] truncate rounded-md border border-line bg-ink-950/70 px-3 py-1 text-center text-[12px] text-fg-subtle">
+          <div className="mx-auto max-w-[60%] truncate rounded-md border border-line bg-ink-950/70 px-3 py-1 text-center text-caption text-fg-subtle">
             {address}
           </div>
         )}

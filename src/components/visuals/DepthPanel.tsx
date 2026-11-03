@@ -62,7 +62,7 @@ export function DepthPanel({ accent, label, children, className }: DepthPanelPro
         <div className="absolute inset-0 [transform:translateZ(40px)]" data-depth-layer>
           {children}
         </div>
-        <span className="absolute left-4 top-4 hidden text-[11.5px] font-semibold uppercase tracking-[0.12em] text-fg-subtle sm:block">
+        <span className="absolute left-4 top-4 hidden text-caption font-semibold uppercase tracking-[0.12em] text-fg-subtle sm:block">
           {label}
         </span>
       </div>

@@ -68,7 +68,7 @@ export function Hero() {
           </h1>
 
           <p
-            className="mt-8 max-w-[34rem] text-[17px] leading-[1.7] text-fg-muted sm:text-lg"
+            className="mt-8 max-w-[34rem] text-body text-fg-muted sm:text-lead"
             data-hero-fade
           >
             I build reliable SaaS platforms, event-driven backends, and AI-powered
@@ -93,7 +93,7 @@ export function Hero() {
             <p className="eyebrow shrink-0">Core stack</p>
             <ul className="flex flex-wrap items-center gap-x-5 gap-y-2" aria-label="Core technologies">
               {heroStack.map((tech, i) => (
-                <li key={tech} className="flex items-center gap-5 text-[14px] text-fg">
+                <li key={tech} className="flex items-center gap-5 text-ui text-fg">
                   {i > 0 && <span aria-hidden="true" className="h-3 w-px bg-white/15" />}
                   {tech}
                 </li>
@@ -102,7 +102,7 @@ export function Hero() {
           </div>
           <a
             href="#about"
-            className="hidden items-center gap-3 text-[13px] text-fg-subtle transition-colors hover:text-fg sm:flex"
+            className="hidden items-center gap-3 text-small text-fg-subtle transition-colors hover:text-fg sm:flex"
           >
             <span className="relative block h-9 w-px overflow-hidden bg-white/10">
               <span className="absolute inset-0 animate-scroll-cue bg-accent" />

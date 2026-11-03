@@ -16,7 +16,7 @@ function mailtoFor(form: { name: string; email: string; message: string }) {
 }
 
 const fieldClass =
-  "w-full rounded-xl border border-line bg-ink-950/70 px-4 py-3 text-[15px] text-fg placeholder:text-fg-subtle/70 outline-none transition-colors focus:border-accent/70 focus-visible:outline-none";
+  "w-full rounded-xl border border-line bg-ink-950/70 px-4 py-3 text-ui text-fg placeholder:text-fg-subtle/70 outline-none transition-colors focus:border-accent/70 focus-visible:outline-none";
 
 export function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -110,7 +110,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={sending}
-          className="inline-flex h-11 items-center gap-2 rounded-full border border-line-strong px-5 text-[14px] font-medium text-fg transition-colors hover:border-accent/60 hover:bg-white/[0.05] disabled:cursor-wait disabled:opacity-60"
+          className="inline-flex h-11 items-center gap-2 rounded-full border border-line-strong px-5 text-ui font-medium text-fg transition-colors hover:border-accent/60 hover:bg-white/[0.05] disabled:cursor-wait disabled:opacity-60"
         >
           {sending ? (
             <LoaderCircle aria-hidden="true" className="h-4 w-4 animate-spin" />
@@ -119,7 +119,7 @@ export function ContactForm() {
           )}
           {sending ? "Sending…" : "Send message"}
         </button>
-        <p id="contact-status" role="status" aria-live="polite" className="text-[14px]">
+        <p id="contact-status" role="status" aria-live="polite" className="text-ui">
           {status && (
             <span
               className={cn(

@@ -19,7 +19,7 @@ export function SectionHeader({ chapter, lines, id, intro, className }: SectionH
     <header className={cn("max-w-4xl", className)}>
       <p className="eyebrow flex items-center gap-3" data-reveal>
         <span className="text-accent">{meta?.number}</span>
-        <span aria-hidden="true" className="h-px w-8 bg-white/20" />
+        <span aria-hidden="true" className="h-px w-8 bg-line-strong" />
         <span>{meta?.name}</span>
       </p>
       <h2
@@ -35,7 +35,7 @@ export function SectionHeader({ chapter, lines, id, intro, className }: SectionH
       </h2>
       {intro && (
         <p
-          className="mt-7 max-w-2xl text-[17px] leading-[1.7] text-fg-muted sm:text-lg"
+          className="mt-7 max-w-2xl text-body text-fg-muted sm:text-lead"
           data-reveal
         >
           {intro}

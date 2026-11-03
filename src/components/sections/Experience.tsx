@@ -3,7 +3,6 @@ import { useRef } from "react";
 import { gsap } from "@/animations/gsap";
 import { revealIn, useScrollMotion } from "@/animations/useScrollMotion";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { SideScrim } from "@/components/ui/SideScrim";
 import { education, experience } from "@/data/experience";
 
 export function Experience() {
@@ -43,10 +42,12 @@ export function Experience() {
         },
       );
       // …and their node on the rail lights up while they are being read.
+      // Light the node in the section's accent (terracotta on paper).
+      const accent = getComputedStyle(role).getPropertyValue("--accent").trim().split(/\s+/).join(",");
       gsap.to(role.querySelector("[data-role-node]"), {
         scale: 1,
-        backgroundColor: "#F2A65A",
-        boxShadow: "0 0 0 6px rgba(242,166,90,0.15), 0 0 18px rgba(242,166,90,0.6)",
+        backgroundColor: `rgb(${accent})`,
+        boxShadow: `0 0 0 6px rgba(${accent},0.15), 0 0 18px rgba(${accent},0.5)`,
         duration: 0.4,
         scrollTrigger: {
           trigger: role,
@@ -65,9 +66,8 @@ export function Experience() {
       aria-labelledby="journey-title"
       className="relative py-28 sm:py-36"
     >
-      <SideScrim side="left" />
       <div className="container-x grid lg:grid-cols-12">
-        <div className="lg:col-span-7">
+        <div className="theme-paper paper-surface paper-sheet lg:col-span-7">
           <SectionHeader
             chapter="journey"
             id="journey-title"
@@ -80,7 +80,7 @@ export function Experience() {
           />
 
           <ol data-timeline className="relative mt-16 pl-8 sm:pl-10">
-            <span aria-hidden="true" className="absolute bottom-2 left-[5px] top-2 w-px bg-white/10" />
+            <span aria-hidden="true" className="absolute bottom-2 left-[5px] top-2 w-px bg-line-strong" />
             <span
               data-rail-fill
               aria-hidden="true"
@@ -92,7 +92,7 @@ export function Experience() {
                 <span
                   data-role-node
                   aria-hidden="true"
-                  className="absolute -left-8 top-2 h-[11px] w-[11px] scale-75 rounded-full border border-white/30 bg-ink-950 sm:-left-10"
+                  className="absolute -left-8 top-2 h-[11px] w-[11px] scale-75 rounded-full border border-line-strong bg-surface sm:-left-10"
                 />
                 <article data-role-card className="grid gap-x-8 gap-y-3 card p-5 sm:grid-cols-[9.5rem_1fr] sm:p-7">
                   <div className="meta leading-[1.7]">
@@ -105,11 +105,11 @@ export function Experience() {
                       <span className="text-fg-subtle"> · </span>
                       <span className="text-accent">{role.company}</span>
                     </h3>
-                    <p className="mt-1.5 text-[15.5px] text-fg-muted">{role.focus}</p>
+                    <p className="mt-1.5 text-body-sm text-fg-muted">{role.focus}</p>
                     <ul className="mt-5 space-y-2.5">
                       {role.points.map((point) => (
-                        <li key={point} className="flex gap-3 text-[16px] leading-[1.7] text-fg-muted">
-                          <span aria-hidden="true" className="mt-[0.7em] h-px w-3 shrink-0 bg-white/30" />
+                        <li key={point} className="flex gap-3 text-body-sm leading-[1.7] text-fg-muted">
+                          <span aria-hidden="true" className="mt-[0.7em] h-px w-3 shrink-0 bg-accent/60" />
                           {point}
                         </li>
                       ))}
@@ -132,7 +132,7 @@ export function Experience() {
             data-reveal
           >
             <p className="meta">{education.period}</p>
-            <p className="text-[16px] text-fg-muted">
+            <p className="text-body-sm text-fg-muted">
               <span className="text-fg">{education.degree}</span> — {education.school}
             </p>
           </div>

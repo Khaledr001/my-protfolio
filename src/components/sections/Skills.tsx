@@ -3,7 +3,6 @@ import { useLayoutEffect, useRef, useState } from "react";
 import { gsap, ScrollTrigger } from "@/animations/gsap";
 import { revealIn, useScrollMotion } from "@/animations/useScrollMotion";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { SideScrim } from "@/components/ui/SideScrim";
 import { skillLayers } from "@/data/skills";
 import { cn } from "@/lib/utils";
 
@@ -65,9 +64,8 @@ export function Skills() {
       aria-labelledby="stack-title"
       className="relative py-28 sm:py-36"
     >
-      <SideScrim side="left" />
       <div className="container-x grid gap-x-12 lg:grid-cols-12">
-        <div className="lg:col-span-6">
+        <div className="theme-paper paper-surface paper-sheet lg:col-span-7">
           <SectionHeader
             chapter="stack"
             id="stack-title"
@@ -94,7 +92,7 @@ export function Skills() {
                 <span
                   data-layer-rule
                   aria-hidden="true"
-                  className="absolute inset-x-0 top-0 h-px origin-left bg-gradient-to-r from-accent/70 via-white/10 to-transparent"
+                  className="absolute inset-x-0 top-0 h-px origin-left bg-gradient-to-r from-accent/70 via-line-strong to-transparent"
                 />
                 <div className="flex items-baseline gap-4">
                   <span className="meta text-accent">
@@ -103,11 +101,11 @@ export function Skills() {
                   <h3 className="text-[clamp(1.5rem,2.4vw,2rem)] font-semibold tracking-tight text-fg">
                     {layer.name}
                   </h3>
-                  <span className="ml-auto hidden text-[12px] font-semibold uppercase tracking-[0.12em] text-fg-subtle sm:block">
+                  <span className="ml-auto hidden text-caption font-semibold uppercase tracking-[0.12em] text-fg-subtle sm:block">
                     {layer.layer}
                   </span>
                 </div>
-                <p className="mt-3 max-w-lg pl-[2.4rem] text-[16px] leading-[1.7] text-fg-muted">
+                <p className="mt-3 max-w-lg pl-[2.4rem] text-body-sm leading-[1.7] text-fg-muted">
                   {layer.summary}
                 </p>
                 <ul className="mt-5 flex flex-wrap gap-2 pl-[2.4rem]">

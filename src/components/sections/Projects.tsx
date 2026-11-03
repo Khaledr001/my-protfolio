@@ -86,7 +86,7 @@ export function Projects() {
             <h3 className="display text-[clamp(1.8rem,3vw,2.6rem)]" data-reveal>
               More work
             </h3>
-            <p className="max-w-md text-[16px] text-fg-muted" data-reveal>
+            <p className="max-w-md text-body-sm text-fg-muted" data-reveal>
               Case studies with screenshots, live demos and source code.
             </p>
           </div>
@@ -102,10 +102,10 @@ export function Projects() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span>
-                    <span className="block text-[19px] font-semibold tracking-tight text-fg transition-colors group-hover:text-accent sm:text-[22px]">
+                    <span className="block text-lead font-semibold tracking-tight text-fg transition-colors group-hover:text-accent sm:text-title">
                       {study.name}
                     </span>
-                    <span className="mt-1 block text-[13.5px] text-fg-subtle">{study.kind}</span>
+                    <span className="mt-1 block text-small text-fg-subtle">{study.kind}</span>
                   </span>
                   <span className="hidden flex-wrap gap-2 sm:flex">
                     {study.tags.slice(0, 4).map((tag) => (
