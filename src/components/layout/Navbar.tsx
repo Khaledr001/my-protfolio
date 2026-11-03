@@ -63,7 +63,7 @@ export function Navbar({ active, progressRef }: NavbarProps) {
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500",
           scrolled || open
-            ? "border-b border-line bg-ink-950/75 backdrop-blur-xl"
+            ? "border-b border-line bg-ink-950/90 backdrop-blur-xl"
             : "border-b border-transparent",
         )}
       >
@@ -79,7 +79,7 @@ export function Navbar({ active, progressRef }: NavbarProps) {
             <span className="grid h-9 w-9 place-items-center rounded-full border border-line-strong font-mono text-[10.5px] font-semibold tracking-wider text-fg transition-colors group-hover:border-accent/70">
               {profile.initials}
             </span>
-            <span className="hidden text-[14px] font-medium tracking-tight text-fg sm:block">
+            <span className="hidden text-ui font-medium tracking-tight text-fg sm:block">
               {profile.name}
             </span>
           </a>
@@ -93,7 +93,7 @@ export function Navbar({ active, progressRef }: NavbarProps) {
                     href={`#${chapter.id}`}
                     aria-current={isActive ? "true" : undefined}
                     className={cn(
-                      "relative rounded-full px-3.5 py-2 text-[14.5px] font-medium transition-colors",
+                      "relative rounded-full px-3.5 py-2 text-ui font-medium transition-colors",
                       isActive ? "text-fg" : "text-fg-subtle hover:text-fg",
                     )}
                   >
@@ -114,7 +114,7 @@ export function Navbar({ active, progressRef }: NavbarProps) {
           <div className="flex items-center gap-2">
             <a
               href={`mailto:${profile.email}`}
-              className="hidden h-10 items-center gap-2 rounded-full border border-line-strong px-4 text-[13.5px] font-medium text-fg transition-colors hover:border-accent/60 hover:bg-white/[0.04] sm:inline-flex"
+              className="hidden h-10 items-center gap-2 rounded-full border border-line-strong px-4 text-small font-medium text-fg transition-colors hover:border-accent/60 hover:bg-white/[0.04] sm:inline-flex"
             >
               Let&rsquo;s talk
               <ArrowUpRight aria-hidden="true" className="h-4 w-4" />

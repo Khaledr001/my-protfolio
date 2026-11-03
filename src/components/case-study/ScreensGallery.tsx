@@ -57,7 +57,7 @@ export function ScreensGallery({ screens, shown, title, address, onOpen }: Scree
         <div className="max-w-sm text-center sm:text-left">
           <p className="eyebrow">Mobile</p>
           <p className="display mt-3 text-[1.6rem]">The same product on a phone.</p>
-          <p className="mt-3 text-[16px] leading-[1.7] text-fg-muted">
+          <p className="mt-3 text-body-sm leading-[1.7] text-fg-muted">
             The mobile layout of {title}. Select the screen to view it full size.
           </p>
         </div>

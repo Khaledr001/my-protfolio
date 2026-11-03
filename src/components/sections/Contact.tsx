@@ -5,6 +5,7 @@ import { revealIn, useScrollMotion } from "@/animations/useScrollMotion";
 import { BrandIcon } from "@/components/ui/BrandIcon";
 import { SideScrim } from "@/components/ui/SideScrim";
 import { ContactForm } from "@/components/ui/ContactForm";
+import { chapters } from "@/data/chapters";
 import { profile, socials } from "@/data/profile";
 import { contactFormEnabled } from "@/lib/emailjs";
 
@@ -55,8 +56,8 @@ export function Contact() {
       <div className="container-x grid lg:grid-cols-12">
         <div className="lg:col-span-8 xl:col-span-7">
           <p className="eyebrow flex items-center gap-3" data-reveal>
-            <span className="text-accent">06</span>
-            <span aria-hidden="true" className="h-px w-8 bg-white/20" />
+            <span className="text-accent">{chapters.find((c) => c.id === "contact")?.number}</span>
+            <span aria-hidden="true" className="h-px w-8 bg-line-strong" />
             <span>The invitation</span>
           </p>
 
@@ -76,7 +77,7 @@ export function Contact() {
             </span>
           </h2>
 
-          <p className="mt-8 max-w-xl text-[17px] leading-[1.7] text-fg-muted sm:text-lg" data-reveal>
+          <p className="mt-8 max-w-xl text-body text-fg-muted sm:text-lead" data-reveal>
             Open to software engineering opportunities and collaborations in backend
             systems, SaaS, and AI-powered products.
           </p>
@@ -84,7 +85,7 @@ export function Contact() {
           <div className="mt-10 flex items-center gap-3" data-reveal>
             <a
               href={`mailto:${profile.email}`}
-              className="group inline-flex h-[52px] min-w-0 items-center gap-3 rounded-full bg-accent pl-6 pr-5 text-[15px] font-medium text-ink-950 transition-shadow duration-300 hover:shadow-[0_0_0_6px_rgba(242,166,90,0.18),0_12px_40px_-8px_rgba(242,166,90,0.55)]"
+              className="group inline-flex h-[52px] min-w-0 items-center gap-3 rounded-full bg-accent pl-6 pr-5 text-ui font-medium text-on-accent transition-shadow duration-300 hover:shadow-[0_0_0_6px_rgba(242,166,90,0.18),0_12px_40px_-8px_rgba(242,166,90,0.55)]"
             >
               <Mail aria-hidden="true" className="h-4 w-4 shrink-0" />
               <span className="truncate">{profile.email}</span>
@@ -100,7 +101,7 @@ export function Contact() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex h-11 items-center gap-2.5 rounded-full border border-line-strong px-5 text-[14px] text-fg transition-colors hover:border-accent/60 hover:bg-white/[0.05]"
+                  className="inline-flex h-11 items-center gap-2.5 rounded-full border border-line-strong px-5 text-ui text-fg transition-colors hover:border-accent/60 hover:bg-white/[0.05]"
                 >
                   <BrandIcon id={social.id} className="h-4 w-4" />
                   {social.label}
@@ -113,7 +114,7 @@ export function Contact() {
               <a
                 href={profile.resumeUrl}
                 download={profile.resumeFileName}
-                className="inline-flex h-11 items-center gap-2.5 rounded-full border border-line-strong px-5 text-[14px] text-fg transition-colors hover:border-accent/60 hover:bg-white/[0.05]"
+                className="inline-flex h-11 items-center gap-2.5 rounded-full border border-line-strong px-5 text-ui text-fg transition-colors hover:border-accent/60 hover:bg-white/[0.05]"
               >
                 <Download aria-hidden="true" className="h-4 w-4" />
                 Download CV
@@ -125,7 +126,7 @@ export function Contact() {
           {contactFormEnabled && (
             <div className="panel mt-14 max-w-2xl p-6 sm:p-8" data-reveal>
               <h3 className="text-lg font-semibold tracking-tight text-fg">Or send a message</h3>
-              <p className="mt-1 text-[14px] text-fg-subtle">It goes straight to my inbox.</p>
+              <p className="mt-1 text-ui text-fg-subtle">It goes straight to my inbox.</p>
               <div className="mt-6">
                 <ContactForm />
               </div>

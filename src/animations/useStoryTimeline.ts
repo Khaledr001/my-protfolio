@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState, type RefObject } from "react";
 
-import { chapters } from "@/data/chapters";
+import { chapters, sceneChapters } from "@/data/chapters";
 import { gsap, ScrollTrigger } from "./gsap";
 import { notifyStory, story } from "./story";
 
@@ -66,12 +66,12 @@ export function useStoryTimeline(
     if (!root) return;
 
     const ctx = gsap.context(() => {
-      const sections = chapters
-        .map((chapter) => document.getElementById(chapter.id))
-        .filter((el): el is HTMLElement => el !== null);
+      const byId = (id: string) => document.getElementById(id);
+      const sections = chapters.map((c) => byId(c.id)).filter((el): el is HTMLElement => el !== null);
+      const sceneSections = sceneChapters.map((c) => byId(c.id)).filter((el): el is HTMLElement => el !== null);
 
-      // Scene transitions happen while the next section rises into view.
-      trackSequence(sections, "top bottom", "top 25%", (value) => {
+      // Scene transitions happen while the next scene's section rises into view.
+      trackSequence(sceneSections, "top bottom", "top 25%", (value) => {
         story.stage = value;
         applySceneDim(value);
       });

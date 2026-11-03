@@ -43,8 +43,8 @@ function CopyField({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between gap-3 rounded-xl border border-line bg-ink-950/60 px-4 py-2.5">
       <div className="min-w-0">
-        <p className="text-[12px] font-semibold uppercase tracking-[0.12em] text-fg-subtle">{label}</p>
-        <p className="mt-1 truncate font-mono text-[14px] text-fg">{value}</p>
+        <p className="text-caption font-semibold uppercase tracking-[0.12em] text-fg-subtle">{label}</p>
+        <p className="mt-1 truncate font-mono text-ui text-fg">{value}</p>
       </div>
       <button
         type="button"
@@ -97,7 +97,7 @@ function Header() {
       <nav aria-label="Primary" className="container-x flex h-[var(--nav-height)] items-center justify-between gap-4">
         <Link
           to="/#work"
-          className="inline-flex h-10 items-center gap-2 rounded-full border border-line-strong px-4 text-[14px] font-medium text-fg transition-colors hover:border-accent/60"
+          className="inline-flex h-10 items-center gap-2 rounded-full border border-line-strong px-4 text-ui font-medium text-fg transition-colors hover:border-accent/60"
         >
           <ArrowLeft aria-hidden="true" className="h-4 w-4" />
           All work
@@ -106,11 +106,11 @@ function Header() {
           <span className="grid h-9 w-9 place-items-center rounded-full border border-line-strong font-mono text-[10.5px] font-semibold tracking-wider text-fg">
             {profile.initials}
           </span>
-          <span className="hidden text-[14px] font-medium text-fg sm:block">{profile.name}</span>
+          <span className="hidden text-ui font-medium text-fg sm:block">{profile.name}</span>
         </Link>
         <a
           href={`mailto:${profile.email}`}
-          className="inline-flex h-10 items-center gap-2 rounded-full bg-accent px-4 text-[14px] font-semibold text-ink-950 transition-colors hover:bg-accent-soft"
+          className="inline-flex h-10 items-center gap-2 rounded-full bg-accent px-4 text-ui font-semibold text-on-accent transition-colors hover:bg-accent-soft"
         >
           Let&rsquo;s talk
           <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
@@ -156,7 +156,7 @@ function SiblingCard({ study, direction }: { study: CaseStudy; direction: "Previ
           {study.name}
           {direction === "Next" && <ArrowRight aria-hidden="true" className="h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />}
         </span>
-        <span className="text-[14.5px] text-fg-subtle">{study.kind}</span>
+        <span className="text-ui text-fg-subtle">{study.kind}</span>
       </div>
     </Link>
   );
@@ -232,7 +232,7 @@ export function ProjectPage() {
 
             <div className="mt-8 grid gap-10 lg:grid-cols-12">
               <div className="lg:col-span-7">
-                <p className="text-[18px] leading-[1.7] text-fg-muted sm:text-[19px]" data-reveal>
+                <p className="text-lead text-fg-muted" data-reveal>
                   {study.description}
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3" data-reveal>
@@ -259,15 +259,15 @@ export function ProjectPage() {
               <dl className="card grid divide-y divide-line self-start lg:col-span-5" data-reveal>
                 <div className="grid grid-cols-[7rem_1fr] gap-4 px-6 py-4">
                   <dt className="eyebrow pt-0.5">Type</dt>
-                  <dd className="text-[15px] text-fg">{study.kind}</dd>
+                  <dd className="text-ui text-fg">{study.kind}</dd>
                 </div>
                 <div className="grid grid-cols-[7rem_1fr] gap-4 px-6 py-4">
                   <dt className="eyebrow pt-0.5">Core stack</dt>
-                  <dd className="text-[15px] text-fg">{study.tags.slice(0, 4).join(" · ")}</dd>
+                  <dd className="text-ui text-fg">{study.tags.slice(0, 4).join(" · ")}</dd>
                 </div>
                 <div className="grid grid-cols-[7rem_1fr] gap-4 px-6 py-4">
                   <dt className="eyebrow pt-0.5">Try it</dt>
-                  <dd className="text-[15px] text-fg">
+                  <dd className="text-ui text-fg">
                     {[study.liveUrl && "Live demo", study.sourceUrl && "Source code", hasAccess && "Demo account"]
                       .filter(Boolean)
                       .join(" · ") || "Screenshots below"}
@@ -277,7 +277,7 @@ export function ProjectPage() {
             </div>
 
             {study.note && (
-              <p className="mt-8 flex max-w-4xl gap-3 rounded-xl border border-cool/30 bg-cool/[0.07] px-5 py-4 text-[15px] leading-[1.65] text-fg-muted" data-reveal>
+              <p className="mt-8 flex max-w-4xl gap-3 rounded-xl border border-cool/30 bg-cool/[0.07] px-5 py-4 text-ui leading-[1.65] text-fg-muted" data-reveal>
                 <Info aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-cool" />
                 <span>{study.note}</span>
               </p>
@@ -304,7 +304,7 @@ export function ProjectPage() {
                       <ScreenImage screen={hero} alt={`${study.name} — main screen`} eager />
                     </PhoneFrame>
                   )}
-                  <span className="absolute bottom-3 right-3 inline-flex items-center gap-2 rounded-full border border-line-strong bg-surface/90 p-2.5 text-[13.5px] font-medium text-fg opacity-90 transition-opacity group-hover:opacity-100 sm:bottom-5 sm:right-5 sm:px-4 sm:py-2">
+                  <span className="absolute bottom-3 right-3 inline-flex items-center gap-2 rounded-full border border-line-strong bg-surface/90 p-2.5 text-small font-medium text-fg opacity-90 transition-opacity group-hover:opacity-100 sm:bottom-5 sm:right-5 sm:px-4 sm:py-2">
                     <Expand aria-hidden="true" className="h-4 w-4" />
                     <span className="hidden sm:inline">View full size</span>
                   </span>
@@ -321,10 +321,10 @@ export function ProjectPage() {
                 <ol className="card mt-8 divide-y divide-line" data-reveal>
                   {study.points.map((point, i) => (
                     <li key={point} className="flex gap-5 px-6 py-5 sm:px-8 sm:py-6">
-                      <span className="w-7 shrink-0 font-display text-[15px] font-bold leading-[1.8] text-accent">
+                      <span className="w-7 shrink-0 font-display text-ui font-bold leading-[1.8] text-accent">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <p className="text-[16.5px] leading-[1.7] text-fg-muted">
+                      <p className="text-body-sm leading-[1.7] text-fg-muted">
                         <Emphasis text={point} />
                       </p>
                     </li>
@@ -367,7 +367,7 @@ export function ProjectPage() {
                     <ul className="mt-4 space-y-2">
                       {study.liveUrl && (
                         <li>
-                          <a href={study.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between gap-3 rounded-xl border border-line px-4 py-3 text-[15px] text-fg transition-colors hover:border-accent/60">
+                          <a href={study.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between gap-3 rounded-xl border border-line px-4 py-3 text-ui text-fg transition-colors hover:border-accent/60">
                             <span className="truncate">{address}</span>
                             <ArrowUpRight aria-hidden="true" className="h-4 w-4 shrink-0 text-accent" />
                             <span className="sr-only">(opens in a new tab)</span>
@@ -376,7 +376,7 @@ export function ProjectPage() {
                       )}
                       {study.sourceUrl && (
                         <li>
-                          <a href={study.sourceUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between gap-3 rounded-xl border border-line px-4 py-3 text-[15px] text-fg transition-colors hover:border-accent/60">
+                          <a href={study.sourceUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between gap-3 rounded-xl border border-line px-4 py-3 text-ui text-fg transition-colors hover:border-accent/60">
                             <span className="flex items-center gap-2">
                               <BrandIcon id="github" className="h-4 w-4" /> Source on GitHub
                             </span>
@@ -394,7 +394,7 @@ export function ProjectPage() {
                     <h2 className="eyebrow flex items-center gap-2">
                       <KeyRound aria-hidden="true" className="h-4 w-4" /> Demo access
                     </h2>
-                    <p className="mt-2 text-[14px] leading-[1.6] text-fg-subtle">A shared public account for the live demo.</p>
+                    <p className="mt-2 text-ui leading-[1.6] text-fg-subtle">A shared public account for the live demo.</p>
                     <div className="mt-4 space-y-2">
                       {study.demoLogin && <CopyField label="Login" value={study.demoLogin} />}
                       {study.demoPassword && <CopyField label="Password" value={study.demoPassword} />}
@@ -418,7 +418,7 @@ export function ProjectPage() {
       )}
 
       <footer className="relative z-10 border-t border-line">
-        <div className="container-x flex flex-col gap-3 py-10 text-[14px] text-fg-subtle sm:flex-row sm:justify-between">
+        <div className="container-x flex flex-col gap-3 py-10 text-ui text-fg-subtle sm:flex-row sm:justify-between">
           <span>&copy; {new Date().getFullYear()} {profile.name}</span>
           <a href={`mailto:${profile.email}`} className="transition-colors hover:text-fg">
             {profile.email}

@@ -57,7 +57,7 @@ export function ProjectChapter({ project, index, total }: ProjectChapterProps) {
           </span>
         </div>
 
-        <p className="mt-6 flex items-center gap-2.5 text-[12.5px] font-semibold uppercase tracking-[0.12em] text-cool-soft" data-reveal>
+        <p className="mt-6 flex items-center gap-2.5 text-caption font-semibold uppercase tracking-[0.12em] text-cool-soft" data-reveal>
           <span
             aria-hidden="true"
             className={cn(
@@ -76,18 +76,18 @@ export function ProjectChapter({ project, index, total }: ProjectChapterProps) {
           {project.title}
         </h3>
 
-        <p className="mt-5 text-[16.5px] leading-[1.7] text-fg-muted" data-reveal>
+        <p className="mt-5 text-body-sm leading-[1.7] text-fg-muted" data-reveal>
           {project.summary}
         </p>
 
         <dl className="mt-9 space-y-6" data-reveal>
           <div>
             <dt className="eyebrow">Problem</dt>
-            <dd className="mt-2 text-[16.5px] leading-[1.7] text-fg">{project.problem}</dd>
+            <dd className="mt-2 text-body-sm leading-[1.7] text-fg">{project.problem}</dd>
           </div>
           <div>
             <dt className="eyebrow">Solution</dt>
-            <dd className="mt-2 text-[16.5px] leading-[1.7] text-fg">{project.solution}</dd>
+            <dd className="mt-2 text-body-sm leading-[1.7] text-fg">{project.solution}</dd>
           </div>
         </dl>
 
@@ -95,7 +95,7 @@ export function ProjectChapter({ project, index, total }: ProjectChapterProps) {
           <h4 className="eyebrow">Technical highlights</h4>
           <ul className="mt-4 space-y-3">
             {project.highlights.map((point) => (
-              <li key={point} className="flex gap-3 text-[16px] leading-[1.7] text-fg-muted">
+              <li key={point} className="flex gap-3 text-body-sm leading-[1.7] text-fg-muted">
                 <span aria-hidden="true" className="mt-[0.7em] h-px w-3 shrink-0 bg-[var(--accent)]" />
                 {point}
               </li>
@@ -112,7 +112,7 @@ export function ProjectChapter({ project, index, total }: ProjectChapterProps) {
         </ul>
 
         {project.note && (
-          <p className="mt-6 border-l border-[var(--accent)] pl-4 text-[13.5px] leading-[1.7] text-fg-subtle" data-reveal>
+          <p className="mt-6 border-l border-[var(--accent)] pl-4 text-small leading-[1.7] text-fg-subtle" data-reveal>
             {project.note}
           </p>
         )}
@@ -124,7 +124,7 @@ export function ProjectChapter({ project, index, total }: ProjectChapterProps) {
                 <Link
                   key={link.href}
                   to={link.href}
-                  className="link-underline inline-flex items-center gap-2 pb-0.5 text-[14.5px] font-medium text-fg"
+                  className="link-underline inline-flex items-center gap-2 pb-0.5 text-ui font-medium text-fg"
                 >
                   {link.label}
                   <ArrowRight aria-hidden="true" className="h-4 w-4 text-[var(--accent)]" />
@@ -135,7 +135,7 @@ export function ProjectChapter({ project, index, total }: ProjectChapterProps) {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="link-underline inline-flex items-center gap-2 pb-0.5 text-[14.5px] font-medium text-fg"
+                  className="link-underline inline-flex items-center gap-2 pb-0.5 text-ui font-medium text-fg"
                 >
                   {link.label}
                   <ArrowUpRight aria-hidden="true" className="h-4 w-4 text-[var(--accent)]" />

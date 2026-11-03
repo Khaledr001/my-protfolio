@@ -53,7 +53,7 @@ export function Lightbox({ screens, index, title, onIndex, onClose }: LightboxPr
       onClick={(event) => event.target === event.currentTarget && onClose()}
     >
       <div className="container-x flex h-16 shrink-0 items-center justify-between">
-        <p className="text-[14px] text-fg-muted" aria-live="polite">
+        <p className="text-ui text-fg-muted" aria-live="polite">
           {title} · {index + 1} / {screens.length}
         </p>
         <button ref={closeRef} type="button" onClick={onClose} aria-label="Close" className={navButton}>

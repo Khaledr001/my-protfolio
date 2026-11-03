@@ -3,7 +3,6 @@ import { useRef } from "react";
 import { gsap } from "@/animations/gsap";
 import { revealIn, useScrollMotion } from "@/animations/useScrollMotion";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { SideScrim } from "@/components/ui/SideScrim";
 import { facts, principles } from "@/data/profile";
 
 const STATEMENT =
@@ -40,9 +39,8 @@ export function About() {
       aria-labelledby="about-title"
       className="relative py-28 sm:py-36 lg:py-44"
     >
-      <SideScrim side="right" />
       <div className="container-x grid gap-y-16 lg:grid-cols-12">
-        <div className="lg:col-span-7 lg:col-start-6">
+        <div className="theme-paper paper-surface paper-sheet lg:col-span-7 lg:col-start-6">
           <SectionHeader
             chapter="about"
             id="about-title"
@@ -66,7 +64,7 @@ export function About() {
             ))}
           </p>
 
-          <p className="mt-6 max-w-2xl border-t border-line pt-6 text-[17px] leading-[1.7] text-fg-muted" data-reveal>
+          <p className="mt-6 max-w-2xl border-t border-line pt-6 text-body leading-[1.7] text-fg-muted" data-reveal>
             For about three years I&rsquo;ve built SaaS, ERP, CRM and marketplace
             backends — multi-tenant systems with strict data isolation, carefully
             designed APIs, optimized queries and event-driven services. Lately
@@ -83,12 +81,12 @@ export function About() {
                 data-reveal
                 data-reveal-delay={i * 0.08}
               >
-                <dt className="text-[13px] leading-snug text-fg-muted">{fact.label}</dt>
+                <dt className="text-small leading-snug text-fg-muted">{fact.label}</dt>
                 <dd>
                   <span className="display block text-[2.4rem] leading-none">
                     {fact.value}
                     {fact.unit && (
-                      <span className="ml-1 text-[13px] font-medium tracking-normal text-fg-subtle">
+                      <span className="ml-1 text-small font-medium tracking-normal text-fg-subtle">
                         {fact.unit}
                       </span>
                     )}
@@ -114,7 +112,7 @@ export function About() {
                   <h4 className="mt-3 text-xl font-semibold tracking-tight text-fg">
                     {principle.title}
                   </h4>
-                  <p className="mt-3 text-[16.5px] leading-[1.7] text-fg-muted">{principle.body}</p>
+                  <p className="mt-3 text-body-sm leading-[1.7] text-fg-muted">{principle.body}</p>
                 </li>
               ))}
             </ol>
